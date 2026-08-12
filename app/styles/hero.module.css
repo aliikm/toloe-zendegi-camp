@@ -1,0 +1,313 @@
+.herocontainer {
+  position: relative;
+  width: 100%;
+  height: 820px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.65) 28%,
+    rgba(255, 255, 255, 0.15) 55%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.paragraphcontainer {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1280px;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 580px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 18px;
+
+  background: #ffffff;
+  border-radius: 999px;
+
+  color: #2f5d3b;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 28px;
+}
+
+.content h1 {
+  font-size: 72px;
+  font-weight: 800;
+
+  line-height: 88px;
+
+  color: #1f2937;
+
+  margin: 0 0 28px;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 36px;
+
+  color: #4b5563;
+
+  margin: 0 0 40px;
+}
+
+.buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.primary {
+  width: 190px;
+  height: 56px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #2f5d3b;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.primary:hover {
+  background: #3c7148;
+}
+
+.secondary {
+  width: 190px;
+  height: 56px;
+
+  border: 2px solid #2f5d3b;
+
+  background: white;
+  color: #2f5d3b;
+
+  border-radius: 999px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.secondary:hover {
+  background: #2f5d3b;
+  color: white;
+}
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 1024px) {
+  .herocontainer {
+    height: 700px;
+  }
+
+  .paragraphcontainer {
+    padding: 0 28px;
+  }
+
+  .content {
+    width: 500px;
+  }
+
+  .content h1 {
+    font-size: 56px;
+    line-height: 1.45;
+  }
+
+  .content p {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 768px) {
+  .herocontainer {
+    height: 650px;
+  }
+
+  .image {
+    object-fit: cover;
+    object-position: 65% center;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.72) 35%,
+      rgba(255, 255, 255, 0.25) 70%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  }
+
+  .paragraphcontainer {
+    width: 100%;
+    max-width: none;
+
+    padding: 100px 24px 40px;
+
+    align-items: flex-start;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  .badge {
+    padding: 8px 14px;
+
+    margin-bottom: 22px;
+
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .content h1 {
+    max-width: 290px;
+
+    margin: 0 0 18px;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    color: #1f2937;
+  }
+
+  .content p {
+    max-width: 300px;
+
+    margin: 0 0 24px;
+
+    font-size: 12px;
+
+    line-height: 2.1;
+
+    color: #4b5563;
+  }
+
+  .buttons {
+    display: flex;
+
+    gap: 10px;
+
+    width: 100%;
+  }
+
+  .primary,
+  .secondary {
+    width: 140px;
+
+    height: 44px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+  }
+}
+
+/* ========================================
+   Small Mobile
+======================================== */
+
+@media (max-width: 480px) {
+  .herocontainer {
+    height: 610px;
+  }
+
+  .image {
+    object-position: 68% center;
+  }
+
+  .paragraphcontainer {
+    padding: 85px 20px 30px;
+  }
+
+  .content {
+    max-width: 310px;
+  }
+
+  .badge {
+    padding: 7px 12px;
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+  }
+
+  .content h1 {
+    max-width: 270px;
+
+    font-size: 29px;
+
+    line-height: 1.5;
+
+    margin-bottom: 16px;
+  }
+
+  .content p {
+    max-width: 275px;
+
+    font-size: 11px;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .primary,
+  .secondary {
+    width: 132px;
+
+    height: 42px;
+
+    font-size: 10px;
+  }
+}

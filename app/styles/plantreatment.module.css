@@ -1,0 +1,163 @@
+/* ========================================
+   MOBILE FIRST
+======================================== */
+
+.container {
+  width: 100%;
+  height: auto;
+
+  padding: 65px 0;
+}
+
+/* ========================================
+   Header
+======================================== */
+
+.headercontainer {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 auto 40px;
+
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+.label {
+  margin-bottom: 10px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.8;
+
+  color: #6b8a68;
+}
+
+.title {
+  margin: 0 0 14px;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  line-height: 1.5;
+
+  color: #24372b;
+}
+
+.description {
+  max-width: 100%;
+
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 2;
+
+  color: #6f756f;
+}
+
+/* ========================================
+   Services Grid
+======================================== */
+
+.servicesGrid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+/* ========================================
+   TABLET
+   768px+
+======================================== */
+
+@media (min-width: 768px) {
+  .container {
+    padding: 80px 0;
+  }
+
+  .headercontainer {
+    max-width: 700px;
+
+    margin-bottom: 55px;
+
+    padding: 0 24px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+}
+
+/* ========================================
+   DESKTOP
+   1024px+
+======================================== */
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 120px 0;
+  }
+
+  .headercontainer {
+    max-width: 720px;
+
+    margin-bottom: 72px;
+
+    padding: 0;
+  }
+
+  .label {
+    font-size: 15px;
+
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 44px;
+
+    line-height: 1.4;
+
+    margin-bottom: 18px;
+  }
+
+  .description {
+    max-width: 640px;
+
+    font-size: 17px;
+
+    line-height: 2;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+}

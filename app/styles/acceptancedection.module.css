@@ -1,0 +1,441 @@
+/* ========================================
+   MOBILE FIRST
+======================================== */
+
+.section {
+  width: 100%;
+  padding: 55px 0;
+
+  direction: rtl;
+
+  background: #f5f7f2;
+}
+
+.container {
+  width: min(100% - 28px, 400px);
+
+  margin-inline: auto;
+}
+
+/* ========================================
+   Content
+======================================== */
+
+.content {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  align-items: center;
+
+  gap: 40px;
+}
+
+/* ========================================
+   Text
+======================================== */
+
+.textContent {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #7f9d6f;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.8;
+}
+
+.title {
+  margin: 0;
+
+  color: #263b2c;
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  line-height: 1.55;
+
+  letter-spacing: -0.5px;
+}
+
+.description {
+  max-width: 600px;
+
+  margin: 18px 0 0;
+
+  color: #687068;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 2.15;
+}
+
+/* ========================================
+   Benefits
+======================================== */
+
+.benefits {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+
+  padding: 0;
+
+  margin: 22px 0 0;
+
+  list-style: none;
+}
+
+.benefits li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #4f5951;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1.8;
+}
+
+.check {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #62805a;
+
+  background: #e5eee0;
+}
+
+.check svg {
+  width: 13px;
+  height: 13px;
+
+  stroke-width: 2.5;
+}
+
+/* ========================================
+   Button
+======================================== */
+
+.button {
+  width: 100%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 48px;
+
+  margin-top: 26px;
+
+  padding: 0 20px;
+
+  border-radius: 12px;
+
+  color: #ffffff;
+
+  background: #31553b;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(49, 85, 59, 0.14);
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button svg {
+  width: 17px;
+  height: 17px;
+
+  transition: transform 0.3s ease;
+}
+
+.button:hover {
+  background: #27452f;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 30px rgba(49, 85, 59, 0.2);
+}
+
+.button:hover svg {
+  transform: translateX(-4px);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(127, 157, 111, 0.35);
+
+  outline-offset: 4px;
+}
+
+/* ========================================
+   Cards
+======================================== */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 14px;
+}
+
+.card {
+  min-height: 210px;
+
+  padding: 24px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
+
+  border: 1px solid #e2e8de;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow: 0 12px 35px rgba(44, 63, 48, 0.06);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+
+  border-color: #ccd9c5;
+
+  box-shadow: 0 20px 45px rgba(44, 63, 48, 0.1);
+}
+
+/* ========================================
+   Icon
+======================================== */
+
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 16px;
+
+  color: #66855d;
+
+  background: #edf3e9;
+}
+
+.iconWrapper svg {
+  width: 25px;
+  height: 25px;
+
+  stroke-width: 1.6;
+}
+
+.card h3 {
+  margin: 0;
+
+  color: #2f4634;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.8;
+}
+
+.card p {
+  margin: 8px 0 0;
+
+  color: #747a74;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 2;
+}
+
+/* ========================================
+   TABLET
+   768px+
+======================================== */
+
+@media (min-width: 768px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .container {
+    width: min(100% - 48px, 700px);
+  }
+
+  .content {
+    gap: 50px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+  }
+
+  .card {
+    min-height: 230px;
+
+    padding: 28px 24px;
+  }
+
+  .button {
+    width: auto;
+  }
+}
+
+/* ========================================
+   DESKTOP
+   1024px+
+======================================== */
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .container {
+    width: min(100% - 48px, 1240px);
+  }
+
+  .content {
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(0, 0.95fr);
+
+    gap: 80px;
+  }
+
+  .title {
+    font-size: clamp(30px, 3.4vw, 44px);
+  }
+
+  .description {
+    max-width: 600px;
+
+    margin-top: 22px;
+
+    font-size: 15px;
+
+    line-height: 2.25;
+  }
+
+  .benefits {
+    gap: 13px;
+
+    margin-top: 25px;
+  }
+
+  .benefits li {
+    font-size: 14px;
+  }
+
+  .button {
+    min-height: 48px;
+
+    margin-top: 30px;
+
+    padding: 0 22px;
+
+    border-radius: 14px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+  }
+
+  .card {
+    min-height: 250px;
+
+    padding: 32px 28px;
+
+    border-radius: 24px;
+  }
+
+  .iconWrapper {
+    margin-bottom: 24px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .card p {
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    line-height: 2.1;
+  }
+}
