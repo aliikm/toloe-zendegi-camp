@@ -1,0 +1,853 @@
+.page {
+  overflow: hidden;
+  background: #f7f8f4;
+  color: #26372c;
+  direction: rtl;
+}
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(22, 43, 30, 0.96),
+      rgba(22, 43, 30, 0.68),
+      rgba(22, 43, 30, 0.28)
+    ),
+    url("/images/services-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(13, 29, 20, 0.08),
+    rgba(13, 29, 20, 0.3)
+  );
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, calc(100% - 40px));
+
+  margin-inline: auto;
+}
+
+.heroContent {
+  max-width: 700px;
+
+  color: #fff;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 16px;
+
+  color: #6e8b72;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+.hero .eyebrow {
+  color: #c6d9c5;
+}
+
+.heroTitle {
+  margin: 0;
+
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.heroDescription {
+  max-width: 600px;
+
+  margin: 28px 0 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 1.05rem;
+
+  line-height: 2;
+}
+
+.heroActions {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-top: 35px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primaryButton,
+.secondaryButton,
+.outlineButton,
+.ctaButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding: 0 26px;
+
+  border-radius: 12px;
+
+  font-size: 0.92rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.primaryButton {
+  background: #d4e4cf;
+
+  color: #263b2b;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #fff;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.outlineButton:hover,
+.ctaButton:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  padding: 110px 0 80px;
+
+  background: #f7f8f4;
+}
+
+.sectionHeading {
+  max-width: 760px;
+}
+
+.sectionHeading h2,
+.sectionHeader h2,
+.treatmentIntro h2,
+.substanceHeader h2,
+.recoveryHeader h2,
+.acceptanceContent h2 {
+  margin: 0;
+
+  color: #26372c;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  line-height: 1.35;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
+.sectionHeading p {
+  max-width: 680px;
+
+  margin: 24px 0 0;
+
+  color: #68736a;
+
+  font-size: 1rem;
+
+  line-height: 2.1;
+}
+
+/* =========================================================
+   FACILITIES
+========================================================= */
+
+.facilities {
+  padding: 80px 0 110px;
+
+  background: #fff;
+}
+
+.sectionHeader {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.8fr;
+
+  gap: 80px;
+
+  align-items: end;
+
+  margin-bottom: 55px;
+}
+
+.sectionHeader p {
+  margin: 0;
+
+  color: #707970;
+
+  line-height: 2;
+}
+
+.facilityGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.facilityCard {
+  min-height: 260px;
+
+  padding: 30px;
+
+  border: 1px solid #e7ebe4;
+
+  border-radius: 20px;
+
+  background: #fafbf8;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.facilityCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 50px rgba(36, 59, 43, 0.08);
+}
+
+.cardIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 45px;
+
+  border-radius: 15px;
+
+  background: #e9f0e5;
+
+  color: #527258;
+
+  font-size: 1.4rem;
+}
+
+.facilityCard h3 {
+  margin: 0 0 12px;
+
+  font-size: 1.2rem;
+}
+
+.facilityCard p {
+  margin: 0;
+
+  color: #737c74;
+
+  font-size: 0.9rem;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   TREATMENT
+========================================================= */
+
+.treatment {
+  padding: 120px 0;
+
+  background: #e9efe5;
+}
+
+.treatmentLayout {
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 100px;
+}
+
+.treatmentIntro p {
+  margin: 25px 0;
+
+  color: #667167;
+
+  line-height: 2;
+}
+
+.textLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #38583f;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.treatmentList {
+  border-top: 1px solid rgba(55, 81, 61, 0.18);
+}
+
+.treatmentItem {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 25px;
+
+  padding: 28px 0;
+
+  border-bottom: 1px solid rgba(55, 81, 61, 0.18);
+}
+
+.itemNumber {
+  color: #79907c;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+}
+
+.treatmentItem h3 {
+  margin: 0 0 8px;
+}
+
+.treatmentItem p {
+  margin: 0;
+
+  color: #69756c;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   SUBSTANCE TREATMENT
+========================================================= */
+
+.substances {
+  padding: 120px 0;
+
+  background: #f7f8f4;
+}
+
+.substanceHeader {
+  max-width: 820px;
+
+  margin-bottom: 60px;
+}
+
+.substanceHeader h2 {
+  margin: 0;
+
+  color: #26372c;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  line-height: 1.4;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
+.substanceHeader p {
+  max-width: 760px;
+
+  margin: 24px 0 0;
+
+  color: #6e776f;
+
+  font-size: 0.98rem;
+
+  line-height: 2.1;
+}
+
+/* =========================================================
+   GROUPS
+========================================================= */
+
+.substanceGroups {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.substanceGroup {
+  padding: 38px;
+
+  border: 1px solid #e1e7df;
+
+  border-radius: 24px;
+
+  background: #fff;
+}
+
+.groupHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid #edf0eb;
+}
+
+.groupNumber {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background: #e8efe4;
+
+  color: #527258;
+
+  font-size: 0.85rem;
+
+  font-weight: 800;
+}
+
+.groupHeader h3 {
+  margin: 0 0 6px;
+
+  color: #2c3d31;
+
+  font-size: 1.3rem;
+}
+
+.groupHeader p {
+  margin: 0;
+
+  color: #89918a;
+
+  font-size: 0.82rem;
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.substanceList {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 0;
+
+  margin: 20px 0 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.substanceList li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-height: 52px;
+
+  border-bottom: 1px solid #f0f2ee;
+
+  color: #4d5a50;
+
+  font-size: 0.92rem;
+}
+
+.listIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #e8efe4;
+
+  color: #55765b;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.substanceNote {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  max-width: 900px;
+
+  margin-top: 28px;
+
+  padding: 20px 24px;
+
+  border-radius: 14px;
+
+  background: #eef2eb;
+
+  color: #6d776f;
+}
+
+.substanceNote > span {
+  color: #607c64;
+
+  font-weight: 800;
+}
+
+.substanceNote p {
+  margin: 0;
+
+  font-size: 0.82rem;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+  .substances {
+    padding: 80px 0;
+  }
+
+  .substanceGroups {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .substanceGroup {
+    padding: 25px;
+  }
+
+  .substanceList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RECOVERY
+========================================================= */
+
+.recovery {
+  padding: 120px 0;
+
+  background: #fff;
+}
+
+.recoveryHeader {
+  max-width: 700px;
+
+  margin-bottom: 55px;
+}
+
+.steps {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.step {
+  padding: 30px;
+
+  border-radius: 18px;
+
+  background: #f7f8f4;
+}
+
+.stepNumber {
+  display: block;
+
+  margin-bottom: 55px;
+
+  color: #8ca18e;
+
+  font-size: 0.8rem;
+
+  font-weight: 800;
+}
+
+.step h3 {
+  margin: 0 0 10px;
+}
+
+.step p {
+  margin: 0;
+
+  color: #747d75;
+
+  font-size: 0.9rem;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   ACCEPTANCE
+========================================================= */
+
+.acceptance {
+  padding: 100px 0;
+
+  background: linear-gradient(120deg, #294632, #3d5e45);
+
+  color: #fff;
+}
+
+.acceptanceContent {
+  max-width: 780px;
+}
+
+.acceptance .eyebrow {
+  color: #c6d8c6;
+}
+
+.acceptanceContent h2 {
+  color: #fff;
+}
+
+.acceptanceContent p {
+  max-width: 650px;
+
+  margin: 25px 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  line-height: 2;
+}
+
+.acceptanceActions {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-top: 30px;
+}
+
+.outlineButton {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #fff;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.finalCta {
+  padding: 110px 0;
+
+  background: #f7f8f4;
+}
+
+.ctaBox {
+  max-width: 850px;
+
+  padding: 70px;
+
+  border-radius: 25px;
+
+  background: #e4ece0;
+
+  text-align: center;
+}
+
+.ctaBox h2 {
+  margin: 0;
+
+  color: #26372c;
+
+  font-size: clamp(1.9rem, 4vw, 3rem);
+
+  line-height: 1.4;
+}
+
+.ctaBox p {
+  max-width: 600px;
+
+  margin: 20px auto 30px;
+
+  color: #6d776f;
+
+  line-height: 2;
+}
+
+.ctaButton {
+  gap: 10px;
+
+  background: #2d4a35;
+
+  color: #fff;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+  .facilityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .substanceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .treatmentLayout {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .sectionHeader {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container,
+  .heroContainer {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .hero {
+    min-height: 600px;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+  }
+
+  .heroDescription {
+    font-size: 0.92rem;
+  }
+
+  .intro,
+  .facilities,
+  .treatment,
+  .substances,
+  .recovery {
+    padding: 75px 0;
+  }
+
+  .facilityGrid,
+  .substanceGrid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .facilityCard {
+    min-height: auto;
+  }
+
+  .ctaBox {
+    padding: 40px 22px;
+  }
+
+  .heroActions,
+  .acceptanceActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .outlineButton,
+  .ctaButton {
+    width: 100%;
+  }
+}

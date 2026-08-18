@@ -11,7 +11,7 @@ export const services = [
     title: "درمان انفرادی",
     description:
       "برنامه درمانی اختصاصی متناسب با شرایط هر فرد برای رسیدن به بهبودی پایدار.",
-    image: "/images/services/service-1.jpg",
+    image: "/image/individual-therapy.jpg",
     icon: LuTrees,
   },
 
@@ -20,7 +20,7 @@ export const services = [
     title: "درمان گروهی",
     description:
       "جلسات گروهی با حضور درمانگران و افراد در مسیر بهبودی برای افزایش انگیزه.",
-    image: "/images/services/service-2.jpg",
+    image: "/image/group-therapy.jpg",
     icon: LuUsers,
   },
 
@@ -29,7 +29,7 @@ export const services = [
     title: "مشاوره خانواده",
     description:
       "آموزش و همراهی خانواده در تمام مراحل درمان و بازگشت به زندگی سالم.",
-    image: "/images/services/service-3.jpg",
+    image: "/image/prevention-recovery.jpg",
     icon: LuMessagesSquare,
   },
 
@@ -38,7 +38,7 @@ export const services = [
     title: "پیشگیری و بازتوانی",
     description:
       "پیگیری وضعیت افراد پس از درمان برای جلوگیری از بازگشت اعتیاد.",
-    image: "/images/services/service-4.jpg",
+    image: "/image/rehabilitation-wellbeing.jpg",
     icon: LuShieldCheck,
   },
 ];

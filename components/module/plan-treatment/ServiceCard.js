@@ -8,13 +8,13 @@ export default function ServiceCard({ service }) {
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
-        {/* <Image
+        <Image
           src={service.image}
           alt={service.title}
           fill
           className={styles.image}
-        /> */}
-        picture
+        />
+
         <div className={styles.iconBox}>
           <Icon className={styles.icon} />
         </div>

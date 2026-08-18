@@ -1,9 +1,6 @@
 import Link from "next/link";
-
-import { LuUsers, LuMapPin, LuArrowLeft, LuCheck } from "react-icons/lu";
-
+import { LuArrowLeft, LuCheck } from "react-icons/lu";
 import { acceptanceFeatures, acceptanceBenefits } from "@/data/accept";
-
 import styles from "@/app/styles/acceptancedection.module.css";
 
 export default function AcceptanceSection() {
