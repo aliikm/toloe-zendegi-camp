@@ -11,13 +11,13 @@ export default function DescribeUsSection() {
       <div className={styles.container}>
         <div className={styles.content}>
           {/* =========================
-                Image
+              Image
           ========================== */}
 
           <div className={styles.imageWrapper}>
             <Image
               src="/image/usdescribe.png"
-              alt="محیط طبیعی و آرام کمپ ترک اعتیاد طلوع زندگی"
+              alt="محیط طبیعی و آرام مجموعه طلوع زندگی"
               width={900}
               height={650}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -26,60 +26,61 @@ export default function DescribeUsSection() {
           </div>
 
           {/* =========================
-                Text Content
+              Text Content
           ========================== */}
 
           <div className={styles.textContent}>
-            <span className={styles.eyebrow}>درباره ما</span>
+            <span className={styles.eyebrow}>درباره طلوع زندگی</span>
 
             <h2 id="camp-details-title" className={styles.title}>
-              ما یک کمپ نیستیم،
+              همراه شما برای
               <br />
-              ما آغاز یک زندگی جدید هستیم
+              شروع یک زندگی جدید
             </h2>
 
             <p className={styles.description}>
-              کمپ تخصصی ترک اعتیاد طلوع زندگی با بیش از یک دهه تجربه در زمینه
-              درمان اعتیاد، با بهره‌گیری از دانش علمی و تخصصی، محیطی آرام و امن
-              برای شروع دوباره زندگی فراهم کرده است. ما در این مسیر در کنار شما
-              هستیم.
+              طلوع زندگی با تمرکز بر درمان و بازتوانی وابستگی به مواد، تلاش
+              می‌کند محیطی آرام و منظم برای آغاز مسیر بهبودی فراهم کند. در این
+              مسیر، شرایط هر فرد به‌صورت جداگانه مورد بررسی قرار می‌گیرد و
+              خانواده نیز می‌تواند در مراحل مختلف مسیر از راهنمایی و حمایت لازم
+              برخوردار شود.
             </p>
 
             {/* =========================
-                  Features
+                Features
             ========================== */}
 
-            <ul className={styles.features}>
+            <ul className={styles.features} aria-label="ویژگی‌های مجموعه">
               <li className={styles.feature}>
-                <span className={styles.checkIcon}>
-                  <LuCheck aria-hidden="true" />
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <LuCheck />
                 </span>
 
-                <span>دارای مجوز رسمی از وزارت بهداشت</span>
+                <span>محیط آرام و مناسب برای ادامه مسیر درمان</span>
               </li>
 
               <li className={styles.feature}>
-                <span className={styles.checkIcon}>
-                  <LuCheck aria-hidden="true" />
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <LuCheck />
                 </span>
 
-                <span>تجربه موفق در درمان مراجعین</span>
+                <span>توجه به شرایط و نیازهای هر فرد</span>
               </li>
 
               <li className={styles.feature}>
-                <span className={styles.checkIcon}>
-                  <LuCheck aria-hidden="true" />
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <LuCheck />
                 </span>
 
-                <span>استفاده از روش‌های علمی و به‌روز</span>
+                <span>همراهی و حمایت در مسیر بازتوانی</span>
               </li>
             </ul>
 
             {/* =========================
-                  CTA
+                CTA
             ========================== */}
 
-            <Link href="/about" className={styles.button}>
+            <Link href="/aboutus" className={styles.button}>
               <span>بیشتر درباره ما</span>
 
               <LuArrowLeft aria-hidden="true" />

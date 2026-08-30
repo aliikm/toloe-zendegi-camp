@@ -5,31 +5,74 @@ import {
   treatmentServices,
   substanceServices,
   recoverySteps,
-} from "../../data/servicesContent.js";
+} from "@/data/servicesContent";
 
-import styles from "../styles/servic.module.css";
+import styles from "@/app/styles/servic.module.css";
+
+import {
+  LuDumbbell,
+  LuTrees,
+  LuWaves,
+  LuGamepad2,
+  LuShieldCheck,
+  LuCheck,
+  LuArrowLeft,
+} from "react-icons/lu";
 
 export const metadata = {
-  title: "خدمات و امکانات | طلوع زندگی",
+  title: "خدمات و امکانات | کمپ ترک اعتیاد طلوع زندگی",
+
   description:
-    "آشنایی با خدمات، امکانات، برنامه‌های درمانی و بازتوانی کمپ طلوع زندگی و خدمات ارائه‌شده برای افراد دارای وابستگی به مواد مختلف.",
+    "آشنایی با خدمات درمانی، مشاوره‌ای، بازتوانی و امکانات کمپ ترک اعتیاد طلوع زندگی و شرایط همراهی با مراجعان در مسیر بهبودی.",
+
+  keywords: [
+    "خدمات کمپ ترک اعتیاد طلوع زندگی",
+    "امکانات کمپ ترک اعتیاد",
+    "خدمات ترک اعتیاد",
+    "مشاوره ترک اعتیاد",
+    "بازتوانی اعتیاد",
+    "درمان اعتیاد",
+    "کمپ ترک اعتیاد طلوع زندگی",
+  ],
+
+  openGraph: {
+    title: "خدمات و امکانات کمپ ترک اعتیاد طلوع زندگی",
+    description:
+      "آشنایی با خدمات درمانی، مشاوره‌ای، بازتوانی و امکانات کمپ طلوع زندگی.",
+    type: "website",
+  },
 };
+
+/* =====================================================
+   Facility Icons
+===================================================== */
+
+const facilityIcons = {
+  pool: LuWaves,
+  sports: LuDumbbell,
+  nature: LuTrees,
+  recreation: LuGamepad2,
+};
+
+/* =====================================================
+   Services Page
+===================================================== */
 
 export default function ServicesPage() {
   return (
     <main className={styles.page}>
       {/* =====================================================
           HERO
-      ===================================================== */}
+      ====================================================== */}
 
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay} />
+      <section className={styles.hero} aria-labelledby="services-hero-title">
+        <div className={styles.heroOverlay} aria-hidden="true" />
 
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>خدمات و امکانات طلوع زندگی</span>
 
-            <h1 className={styles.heroTitle}>
+            <h1 id="services-hero-title" className={styles.heroTitle}>
               فضایی برای درمان،
               <br />
               بازتوانی و بازگشت به زندگی
@@ -37,15 +80,19 @@ export default function ServicesPage() {
 
             <p className={styles.heroDescription}>
               در طلوع زندگی تلاش می‌کنیم در کنار خدمات درمانی و مشاوره‌ای، محیطی
-              آرام و مناسب برای ادامه مسیر بهبودی و بازتوانی فراهم کنیم.
+              آرام و حمایتگر برای طی کردن مسیر بهبودی و بازتوانی فراهم کنیم.
             </p>
 
             <div className={styles.heroActions}>
-              <Link href="/contact" className={styles.primaryButton}>
+              <Link href="/contact-us" className={styles.primaryButton}>
                 دریافت مشاوره
               </Link>
 
-              <a href="tel:09122268806" className={styles.secondaryButton}>
+              <a
+                href="tel:+989122268806"
+                className={styles.secondaryButton}
+                aria-label="تماس مستقیم با کمپ طلوع زندگی"
+              >
                 تماس مستقیم
               </a>
             </div>
@@ -55,7 +102,7 @@ export default function ServicesPage() {
 
       {/* =====================================================
           INTRO
-      ===================================================== */}
+      ====================================================== */}
 
       <section className={styles.intro}>
         <div className={styles.container}>
@@ -75,7 +122,7 @@ export default function ServicesPage() {
 
       {/* =====================================================
           FACILITIES
-      ===================================================== */}
+      ====================================================== */}
 
       <section className={styles.facilities} aria-labelledby="facilities-title">
         <div className={styles.container}>
@@ -88,35 +135,41 @@ export default function ServicesPage() {
 
             <p>
               امکانات رفاهی و فعالیت‌های سالم در کنار فرایند درمان می‌توانند به
-              ایجاد محیطی آرام‌تر و منظم‌تر کمک کنند.
+              ایجاد محیطی آرام‌تر و منظم‌تر در طول دوره اقامت کمک کنند.
             </p>
           </div>
 
           <div className={styles.facilityGrid}>
-            {facilityServices.map((service) => (
-              <article key={service.id} className={styles.facilityCard}>
-                <div className={styles.cardIcon} aria-hidden="true">
-                  <span>+</span>
-                </div>
+            {facilityServices.map((service) => {
+              const Icon = facilityIcons[service.icon] || LuShieldCheck;
 
-                <div>
-                  <h3>{service.title}</h3>
+              return (
+                <article key={service.id} className={styles.facilityCard}>
+                  <div className={styles.cardIcon} aria-hidden="true">
+                    <Icon />
+                  </div>
 
-                  <p>{service.description}</p>
-                </div>
-              </article>
-            ))}
+                  <div className={styles.cardContent}>
+                    <h3>{service.title}</h3>
+
+                    <p>{service.description}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* =====================================================
           TREATMENT SERVICES
-      ===================================================== */}
+      ====================================================== */}
 
       <section className={styles.treatment} aria-labelledby="treatment-title">
         <div className={styles.container}>
           <div className={styles.treatmentLayout}>
+            {/* Intro */}
+
             <div className={styles.treatmentIntro}>
               <span className={styles.eyebrow}>خدمات تخصصی</span>
 
@@ -127,11 +180,14 @@ export default function ServicesPage() {
                 متناسب با شرایط و نیازهای هر فرد مورد بررسی قرار بگیرد.
               </p>
 
-              <Link href="/contact" className={styles.textLink}>
-                دریافت مشاوره
-                <span aria-hidden="true">←</span>
+              <Link href="/contact-us" className={styles.textLink}>
+                <span>دریافت مشاوره</span>
+
+                <LuArrowLeft aria-hidden="true" />
               </Link>
             </div>
+
+            {/* Treatment List */}
 
             <div className={styles.treatmentList}>
               {treatmentServices.map((service, index) => (
@@ -153,30 +209,34 @@ export default function ServicesPage() {
       </section>
 
       {/* =====================================================
-    SUBSTANCE TREATMENT
-===================================================== */}
+          SUBSTANCE TREATMENT
+      ====================================================== */}
 
       <section className={styles.substances} aria-labelledby="substances-title">
         <div className={styles.container}>
           <div className={styles.substanceHeader}>
             <span className={styles.eyebrow}>حوزه‌های درمان و بازتوانی</span>
 
-            <h2 id="substances-title">پوشش درمانی وابستگی به انواع مواد</h2>
+            <h2 id="substances-title">ارزیابی و خدمات متناسب با نوع وابستگی</h2>
 
             <p>
-              خدمات درمان و بازتوانی مرکز برای افراد دارای وابستگی به طیف مختلفی
-              از مواد ارائه می‌شود. نوع ماده مصرفی، میزان و مدت مصرف و شرایط
-              جسمی و روانی هر فرد در فرایند ارزیابی و تعیین مسیر درمان مورد توجه
-              قرار می‌گیرد.
+              خدمات درمان و بازتوانی برای افرادی با وابستگی به طیف مختلفی از
+              مواد، پس از بررسی شرایط فرد ارائه می‌شود. نوع ماده مصرفی، میزان و
+              مدت مصرف و شرایط جسمی و روانی فرد در ارزیابی و تعیین مسیر مناسب
+              مورد توجه قرار می‌گیرد.
             </p>
           </div>
 
           <div className={styles.substanceGroups}>
-            {/* مواد سنتی */}
+            {/* =================================================
+                Traditional
+            ================================================== */}
 
             <div className={styles.substanceGroup}>
               <div className={styles.groupHeader}>
-                <span className={styles.groupNumber}>01</span>
+                <span className={styles.groupNumber} aria-hidden="true">
+                  01
+                </span>
 
                 <div>
                   <h3>مواد سنتی</h3>
@@ -191,7 +251,7 @@ export default function ServicesPage() {
                   .map((item) => (
                     <li key={item.id}>
                       <span className={styles.listIcon} aria-hidden="true">
-                        ✓
+                        <LuCheck />
                       </span>
 
                       <span>{item.title}</span>
@@ -200,11 +260,15 @@ export default function ServicesPage() {
               </ul>
             </div>
 
-            {/* مواد صنعتی */}
+            {/* =================================================
+                Industrial
+            ================================================== */}
 
             <div className={styles.substanceGroup}>
               <div className={styles.groupHeader}>
-                <span className={styles.groupNumber}>02</span>
+                <span className={styles.groupNumber} aria-hidden="true">
+                  02
+                </span>
 
                 <div>
                   <h3>مواد صنعتی و محرک</h3>
@@ -223,7 +287,7 @@ export default function ServicesPage() {
                   .map((item) => (
                     <li key={item.id}>
                       <span className={styles.listIcon} aria-hidden="true">
-                        ✓
+                        <LuCheck />
                       </span>
 
                       <span>{item.title}</span>
@@ -232,6 +296,8 @@ export default function ServicesPage() {
               </ul>
             </div>
           </div>
+
+          {/* Note */}
 
           <div className={styles.substanceNote}>
             <span aria-hidden="true">*</span>
@@ -247,7 +313,7 @@ export default function ServicesPage() {
 
       {/* =====================================================
           RECOVERY PROCESS
-      ===================================================== */}
+      ====================================================== */}
 
       <section className={styles.recovery} aria-labelledby="recovery-title">
         <div className={styles.container}>
@@ -255,6 +321,11 @@ export default function ServicesPage() {
             <span className={styles.eyebrow}>مسیر همراهی</span>
 
             <h2 id="recovery-title">از اولین تماس تا بازتوانی</h2>
+
+            <p>
+              مسیر هر فرد پس از بررسی شرایط او مشخص می‌شود، اما به‌طور کلی
+              فرایند همراهی می‌تواند شامل مراحل زیر باشد.
+            </p>
           </div>
 
           <div className={styles.steps}>
@@ -275,9 +346,11 @@ export default function ServicesPage() {
 
       {/* =====================================================
           ACCEPTANCE
-      ===================================================== */}
+      ====================================================== */}
 
       <section className={styles.acceptance} aria-labelledby="acceptance-title">
+        <div className={styles.acceptanceOverlay} aria-hidden="true" />
+
         <div className={styles.container}>
           <div className={styles.acceptanceContent}>
             <span className={styles.eyebrow}>پذیرش و هماهنگی</span>
@@ -285,9 +358,9 @@ export default function ServicesPage() {
             <h2 id="acceptance-title">برای شروع مسیر، با ما صحبت کنید</h2>
 
             <p>
-              امکان بررسی شرایط پذیرش بانوان و همچنین هماهنگی برای مراجعان از
-              شهرهای مختلف کشور وجود دارد. شرایط هر فرد پیش از پذیرش بررسی
-              می‌شود.
+              امکان بررسی شرایط پذیرش بانوان و آقایان و همچنین هماهنگی برای
+              مراجعانی که از شهرهای مختلف کشور مراجعه می‌کنند وجود دارد. شرایط
+              هر فرد پیش از پذیرش بررسی خواهد شد.
             </p>
 
             <div className={styles.acceptanceActions}>
@@ -295,7 +368,7 @@ export default function ServicesPage() {
                 شرایط پذیرش
               </Link>
 
-              <Link href="/contact" className={styles.outlineButton}>
+              <Link href="/contact-us" className={styles.outlineButton}>
                 دریافت مشاوره
               </Link>
             </div>
@@ -305,23 +378,28 @@ export default function ServicesPage() {
 
       {/* =====================================================
           FINAL CTA
-      ===================================================== */}
+      ====================================================== */}
 
-      <section className={styles.finalCta}>
+      <section className={styles.finalCta} aria-labelledby="final-cta-title">
+        <div className={styles.finalCtaOverlay} aria-hidden="true" />
+
         <div className={styles.container}>
           <div className={styles.ctaBox}>
             <span className={styles.eyebrow}>طلوع زندگی</span>
 
-            <h2>برای شروع، لازم نیست همه پاسخ‌ها را داشته باشید.</h2>
+            <h2 id="final-cta-title">
+              برای شروع، لازم نیست همه پاسخ‌ها را داشته باشید.
+            </h2>
 
             <p>
-              اگر درباره شرایط درمان، امکانات مرکز یا پذیرش سؤال دارید، با ما
-              تماس بگیرید.
+              اگر درباره شرایط درمان، امکانات مرکز یا پذیرش سؤال دارید،
+              می‌توانید برای دریافت اطلاعات بیشتر با ما در تماس باشید.
             </p>
 
-            <Link href="/contact" className={styles.ctaButton}>
-              دریافت مشاوره
-              <span aria-hidden="true">←</span>
+            <Link href="/contact-us" className={styles.ctaButton}>
+              <span>دریافت مشاوره</span>
+
+              <LuArrowLeft aria-hidden="true" />
             </Link>
           </div>
         </div>

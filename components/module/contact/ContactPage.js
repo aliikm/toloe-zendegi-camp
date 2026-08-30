@@ -11,12 +11,12 @@ export default function ContactPage() {
           HERO
       ====================================================== */}
 
-      <section className={styles.hero}>
+      <section className={styles.hero} aria-labelledby="contact-title">
         <div className={styles.container}>
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>ارتباط با طلوع زندگی</span>
 
-            <h1>با ما در تماس باشید</h1>
+            <h1 id="contact-title">با ما در تماس باشید</h1>
 
             <p>
               اگر درباره روند درمان، شرایط پذیرش یا خدمات طلوع زندگی سوالی
@@ -25,7 +25,7 @@ export default function ContactPage() {
 
             <div className={styles.heroActions}>
               <a
-                href="tel:+989121234567"
+                href="tel:+989122268806"
                 className={styles.primaryButton}
                 aria-label="تماس تلفنی با کمپ طلوع زندگی"
               >
@@ -44,72 +44,97 @@ export default function ContactPage() {
           CONTACT CARDS
       ====================================================== */}
 
-      <section className={styles.contactCardsSection}>
+      <section
+        className={styles.contactCardsSection}
+        aria-labelledby="contact-methods-title"
+      >
         <div className={styles.container}>
+          <h2 id="contact-methods-title" className={styles.srOnly}>
+            راه‌های ارتباطی با کمپ طلوع زندگی
+          </h2>
+
           <div className={styles.contactCards}>
-            {/* Phone */}
+            {/* =================================================
+                PHONE
+            ================================================== */}
 
             <a
-              href="tel:+989121234567"
+              href="tel:+989122268806"
               className={styles.contactCard}
               aria-label="تماس تلفنی با طلوع زندگی"
             >
-              <div className={styles.cardIcon}>☎</div>
+              <div className={styles.cardIcon} aria-hidden="true">
+                ☎
+              </div>
 
-              <div>
+              <div className={styles.cardContent}>
                 <span>تماس تلفنی</span>
 
-                <strong dir="ltr">0912 123 4567</strong>
+                <strong dir="ltr">0912 226 8806</strong>
 
-                <p>برای دریافت مشاوره</p>
+                <strong dir="ltr">0935 306 0799</strong>
+
+                <p>برای دریافت مشاوره و راهنمایی</p>
               </div>
             </a>
 
-            {/* WhatsApp */}
+            {/* =================================================
+                WHATSAPP
+            ================================================== */}
 
             <a
-              href="https://wa.me/989121234567"
+              href="https://wa.me/989122268806"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.contactCard}
               aria-label="ارتباط با طلوع زندگی در واتساپ"
             >
-              <div className={styles.cardIcon}>💬</div>
+              <div className={styles.cardIcon} aria-hidden="true">
+                💬
+              </div>
 
-              <div>
+              <div className={styles.cardContent}>
                 <span>واتساپ</span>
 
                 <strong>گفت‌وگو با مشاور</strong>
 
-                <p>پاسخگویی و راهنمایی</p>
+                <p>پاسخگویی و راهنمایی اولیه</p>
               </div>
             </a>
 
-            {/* Address */}
+            {/* =================================================
+                ADDRESS
+            ================================================== */}
 
             <div className={styles.contactCard}>
-              <div className={styles.cardIcon}>📍</div>
+              <div className={styles.cardIcon} aria-hidden="true">
+                📍
+              </div>
 
-              <div>
+              <div className={styles.cardContent}>
                 <span>آدرس</span>
 
-                <strong>آدرس مرکز</strong>
+                <strong>کمپ طلوع زندگی</strong>
 
-                <p>آدرس کامل مرکز در این قسمت قرار می‌گیرد.</p>
+                <p>استان تهران، چهاردانگه</p>
               </div>
             </div>
 
-            {/* Working Hours */}
+            {/* =================================================
+                WORKING HOURS
+            ================================================== */}
 
             <div className={styles.contactCard}>
-              <div className={styles.cardIcon}>◷</div>
+              <div className={styles.cardIcon} aria-hidden="true">
+                ◷
+              </div>
 
-              <div>
+              <div className={styles.cardContent}>
                 <span>ساعات پاسخگویی</span>
 
                 <strong>همه‌روزه</strong>
 
-                <p>ساعت پاسخگویی مرکز</p>
+                <p>۲۴ ساعت شبانه‌روز</p>
               </div>
             </div>
           </div>
@@ -120,15 +145,22 @@ export default function ContactPage() {
           MAIN CONTACT
       ====================================================== */}
 
-      <section className={styles.mainContact}>
+      <section
+        className={styles.mainContact}
+        aria-labelledby="consultation-title"
+      >
         <div className={styles.container}>
           <div className={styles.contactGrid}>
-            {/* Information */}
+            {/* =================================================
+                INFORMATION
+            ================================================== */}
 
             <div className={styles.contactInfo}>
               <span className={styles.sectionEyebrow}>مشاوره و راهنمایی</span>
 
-              <h2>قبل از شروع مسیر، سوالاتتان را از ما بپرسید</h2>
+              <h2 id="consultation-title">
+                قبل از شروع مسیر، سوالاتتان را از ما بپرسید
+              </h2>
 
               <p>
                 اگر برای انتخاب مسیر درمان یا شرایط پذیرش نیاز به اطلاعات بیشتری
@@ -136,8 +168,12 @@ export default function ContactPage() {
               </p>
 
               <div className={styles.infoList}>
+                {/* Item 1 */}
+
                 <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>✓</span>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    ✓
+                  </span>
 
                   <div>
                     <strong>مشاوره پیش از پذیرش</strong>
@@ -148,18 +184,28 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Item 2 */}
+
                 <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>✓</span>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    ✓
+                  </span>
 
                   <div>
                     <strong>پذیرش از سراسر کشور</strong>
 
-                    <p>برای هماهنگی پذیرش از شهرهای مختلف با ما تماس بگیرید.</p>
+                    <p>
+                      برای هماهنگی پذیرش از شهرهای مختلف کشور با ما تماس بگیرید.
+                    </p>
                   </div>
                 </div>
 
+                {/* Item 3 */}
+
                 <div className={styles.infoItem}>
-                  <span className={styles.infoIcon}>✓</span>
+                  <span className={styles.infoIcon} aria-hidden="true">
+                    ✓
+                  </span>
 
                   <div>
                     <strong>پذیرش خانم‌ها و آقایان</strong>
@@ -170,9 +216,17 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Acceptance Link */}
+
+              <Link href="/paziresh" className={styles.infoLink}>
+                مشاهده شرایط پذیرش
+              </Link>
             </div>
 
-            {/* Form */}
+            {/* =================================================
+                FORM
+            ================================================== */}
 
             <div className={styles.formWrapper}>
               <div className={styles.formHeader}>
@@ -196,28 +250,37 @@ export default function ContactPage() {
           LOCATION
       ====================================================== */}
 
-      <section className={styles.location}>
+      <section className={styles.location} aria-labelledby="location-title">
         <div className={styles.container}>
           <div className={styles.locationGrid}>
+            {/* Information */}
+
             <div className={styles.locationInfo}>
               <span className={styles.sectionEyebrow}>موقعیت مرکز</span>
 
-              <h2>ما را پیدا کنید</h2>
+              <h2 id="location-title">ما را پیدا کنید</h2>
 
               <p>برای مراجعه حضوری می‌توانید از آدرس زیر استفاده کنید.</p>
 
               <div className={styles.addressBox}>
                 <strong>آدرس کمپ طلوع زندگی</strong>
 
-                <p>استان — شهر — خیابان — کوچه — پلاک — کدپستی</p>
+                <p>استان تهران، چهاردانگه</p>
               </div>
 
-              <a href="#" className={styles.mapButton}>
+              {/*
+                بعداً لینک واقعی Google Maps یا نشان را اینجا قرار می‌دهیم.
+              */}
+
+              <a href="#map" className={styles.mapButton}>
                 مشاهده مسیر روی نقشه
               </a>
             </div>
 
+            {/* Map */}
+
             <div
+              id="map"
               className={styles.mapPlaceholder}
               aria-label="موقعیت کمپ طلوع زندگی روی نقشه"
             >
@@ -231,17 +294,17 @@ export default function ContactPage() {
           CTA
       ====================================================== */}
 
-      <section className={styles.cta}>
+      <section className={styles.cta} aria-labelledby="contact-cta-title">
         <div className={styles.container}>
           <div className={styles.ctaBox}>
             <span>آماده شروع یک مسیر تازه هستید؟</span>
 
-            <h2>برای دریافت مشاوره با ما تماس بگیرید</h2>
+            <h2 id="contact-cta-title">برای دریافت مشاوره با ما تماس بگیرید</h2>
 
             <p>کارشناسان طلوع زندگی آماده پاسخگویی و راهنمایی شما هستند.</p>
 
             <a
-              href="tel:+989121234567"
+              href="tel:+989122268806"
               className={styles.ctaButton}
               aria-label="تماس برای مشاوره با کمپ طلوع زندگی"
             >

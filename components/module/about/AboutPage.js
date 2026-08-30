@@ -1,73 +1,97 @@
+import Link from "next/link";
 import styles from "@/app/styles/aboutpage.module.css";
 
 export default function AboutPage() {
   return (
     <main className={styles.page}>
-      {/* Hero */}
-      <section className={styles.hero}>
+      {/* ========================================
+          HERO
+      ======================================== */}
+
+      <section className={styles.hero} aria-labelledby="about-title">
         <div className={styles.container}>
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>درباره طلوع زندگی</span>
 
-            <h1>
-              ما یک کمپ نیستیم؛
+            <h1 id="about-title">
+              کمپ ترک اعتیاد طلوع زندگی؛
               <br />
-              ما آغاز یک زندگی جدید هستیم
+              همراه مسیر یک زندگی سالم
             </h1>
 
             <p>
-              در طلوع زندگی تلاش می‌کنیم محیطی امن، آرام و حرفه‌ای برای شروع
-              مسیر بهبودی و بازگشت به یک زندگی سالم فراهم کنیم.
+              در طلوع زندگی تلاش می‌کنیم محیطی امن، آرام و حمایتگر برای افرادی
+              فراهم کنیم که تصمیم گرفته‌اند مسیر بهبودی و بازگشت به یک زندگی
+              سالم را آغاز کنند.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className={styles.story}>
+      {/* ========================================
+          STORY
+      ======================================== */}
+
+      <section className={styles.story} aria-labelledby="story-title">
         <div className={styles.container}>
           <div className={styles.storyGrid}>
-            <div className={styles.storyImage}>
-              {/* عکس را بعداً اینجا قرار می‌دهیم */}
-            </div>
+            <div
+              className={styles.storyImage}
+              role="img"
+              aria-label="محیط کمپ ترک اعتیاد طلوع زندگی"
+            />
 
             <div className={styles.storyContent}>
               <span className={styles.sectionEyebrow}>داستان ما</span>
 
-              <h2>همراه شما برای ساختن یک مسیر تازه</h2>
+              <h2 id="story-title">همراه شما برای ساختن یک مسیر تازه</h2>
 
               <p>
-                طلوع زندگی با هدف ایجاد محیطی امن و آرام برای افرادی شکل گرفته
-                است که تصمیم گرفته‌اند مسیر تازه‌ای را برای زندگی خود آغاز کنند.
+                کمپ ترک اعتیاد طلوع زندگی با هدف ایجاد محیطی امن و آرام برای
+                افرادی شکل گرفته است که تصمیم گرفته‌اند مسیر تازه‌ای برای زندگی
+                خود آغاز کنند.
               </p>
 
               <p>
-                باور ما این است که بهبودی فقط به معنای کنار گذاشتن مصرف نیست؛
-                بلکه آغاز مسیری برای بازسازی اعتماد، آرامش، روابط و کیفیت زندگی
-                است.
+                باور ما این است که مسیر بهبودی تنها به قطع مصرف محدود نمی‌شود؛
+                بلکه می‌تواند شامل بازسازی آرامش، روابط، اعتماد و کیفیت زندگی
+                نیز باشد.
               </p>
+
+              <span>
+                تیم طلوع زندگی تلاش می‌کند با همراهی و حمایت مستمر، مراجعان و
+                خانواده‌های آن‌ها را در مسیر درمان و بازگشت به زندگی سالم همراهی
+                کند.
+              </span>
+
+              <h4>با مدیریت: آقای حسن پورگل</h4>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Approach */}
-      <section className={styles.approach}>
+      {/* ========================================
+          APPROACH
+      ======================================== */}
+
+      <section className={styles.approach} aria-labelledby="approach-title">
         <div className={styles.container}>
           <div className={styles.sectionHeading}>
             <span className={styles.sectionEyebrow}>رویکرد ما</span>
 
-            <h2>درمان با نگاه انسانی</h2>
+            <h2 id="approach-title">درمان با نگاه انسانی</h2>
 
             <p>
-              در طلوع زندگی، هر فرد را با شرایط و مسیر منحصربه‌فرد خودش
-              می‌بینیم.
+              در طلوع زندگی، هر فرد شرایط، نیازها و مسیر متفاوتی دارد و تلاش
+              می‌کنیم این تفاوت‌ها در روند همراهی و درمان مورد توجه قرار گیرد.
             </p>
           </div>
 
           <div className={styles.approachGrid}>
             <article className={styles.approachCard}>
-              <div className={styles.icon}>✓</div>
+              <div className={styles.icon} aria-hidden="true">
+                ✓
+              </div>
 
               <h3>محیط امن و آرام</h3>
 
@@ -75,77 +99,98 @@ export default function AboutPage() {
             </article>
 
             <article className={styles.approachCard}>
-              <div className={styles.icon}>✓</div>
+              <div className={styles.icon} aria-hidden="true">
+                ✓
+              </div>
 
-              <h3>توجه به فرد</h3>
+              <h3>توجه به شرایط فرد</h3>
 
-              <p>شرایط و نیازهای هر فرد را در مسیر درمان در نظر می‌گیریم.</p>
+              <p>
+                شرایط و نیازهای هر فرد در روند پذیرش و مسیر درمان مورد توجه قرار
+                می‌گیرد.
+              </p>
             </article>
 
             <article className={styles.approachCard}>
-              <div className={styles.icon}>✓</div>
+              <div className={styles.icon} aria-hidden="true">
+                ✓
+              </div>
 
               <h3>همراهی مستمر</h3>
 
               <p>
-                هدف ما فقط شروع درمان نیست؛ بلکه همراهی در مسیر بازگشت به زندگی
-                سالم است.
+                هدف ما تنها شروع درمان نیست؛ بلکه همراهی در مسیر بازگشت به زندگی
+                سالم و پایدار است.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className={styles.values}>
+      {/* ========================================
+          VALUES
+      ======================================== */}
+
+      <section className={styles.values} aria-labelledby="values-title">
         <div className={styles.container}>
           <div className={styles.sectionHeadingCenter}>
             <span className={styles.sectionEyebrow}>ارزش‌های ما</span>
 
-            <h2>چیزهایی که به آن‌ها باور داریم</h2>
+            <h2 id="values-title">چیزهایی که به آن‌ها باور داریم</h2>
           </div>
 
           <div className={styles.valuesGrid}>
             <article className={styles.valueCard}>
               <h3>احترام</h3>
-              <p>حفظ کرامت و احترام هر فرد در تمام مراحل.</p>
+
+              <p>حفظ کرامت و احترام هر فرد در تمام مراحل همراهی و درمان.</p>
             </article>
 
             <article className={styles.valueCard}>
               <h3>اعتماد</h3>
-              <p>ایجاد رابطه‌ای مبتنی بر اعتماد و صداقت.</p>
+
+              <p>تلاش برای ایجاد رابطه‌ای مبتنی بر اعتماد، صداقت و احترام.</p>
             </article>
 
             <article className={styles.valueCard}>
               <h3>همراهی</h3>
-              <p>تنها گذاشتن فرد در هیچ مرحله‌ای از مسیر.</p>
+
+              <p>تلاش برای تنها نگذاشتن فرد و خانواده در مسیر بهبودی.</p>
             </article>
 
             <article className={styles.valueCard}>
               <h3>مسئولیت‌پذیری</h3>
-              <p>پایبندی به کیفیت و مسئولیت در مسیر درمان.</p>
+
+              <p>
+                پایبندی به کیفیت خدمات و مسئولیت‌پذیری در روند همراهی با
+                مراجعان.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      {/* Why Us */}
-      <section className={styles.whyUs}>
+      {/* ========================================
+          WHY US
+      ======================================== */}
+
+      <section className={styles.whyUs} aria-labelledby="why-us-title">
         <div className={styles.container}>
           <div className={styles.whyUsBox}>
             <div className={styles.whyUsContent}>
               <span className={styles.sectionEyebrow}>چرا طلوع زندگی؟</span>
 
-              <h2>شروع دوباره، با یک انتخاب درست</h2>
+              <h2 id="why-us-title">شروع دوباره، با یک انتخاب آگاهانه</h2>
 
               <p>
                 انتخاب یک مرکز مناسب برای شروع مسیر بهبودی تصمیم مهمی است. ما
-                تلاش می‌کنیم این مسیر با آرامش، احترام و همراهی بیشتری طی شود.
+                تلاش می‌کنیم این مسیر با آرامش، احترام و اطلاعات روشن‌تری همراه
+                باشد.
               </p>
 
               <ul>
                 <li>محیط آرام و حمایتگر</li>
-                <li>پذیرش خانم‌ها و آقایان</li>
+                <li>پذیرش بانوان و آقایان</li>
                 <li>پذیرش مراجعان از سراسر کشور</li>
                 <li>مشاوره و راهنمایی پیش از پذیرش</li>
               </ul>
@@ -154,26 +199,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className={styles.cta}>
+      {/* ========================================
+          CTA
+      ======================================== */}
+
+      <section className={styles.cta} aria-labelledby="cta-title">
         <div className={styles.container}>
           <div className={styles.ctaBox}>
             <span>آماده شروع یک مسیر تازه هستید؟</span>
 
-            <h2>برای دریافت مشاوره با ما در تماس باشید</h2>
+            <h2 id="cta-title">برای دریافت مشاوره با ما در تماس باشید</h2>
 
             <p>
-              قبل از پذیرش می‌توانید برای دریافت اطلاعات و راهنمایی بیشتر با ما
-              تماس بگیرید.
+              پیش از پذیرش می‌توانید برای دریافت اطلاعات بیشتر درباره شرایط
+              پذیرش و روند شروع درمان با ما تماس بگیرید.
             </p>
 
-            <a
-              href="tel:09122268806"
-              className={styles.ctaButton}
-              aria-label="تماس برای مشاوره با کمپ طلوع زندگی"
-            >
-              تماس برای مشاوره
-            </a>
+            <div className={styles.ctaActions}>
+              <a
+                href="tel:09122268806"
+                className={styles.ctaButton}
+                aria-label="تماس برای دریافت مشاوره از کمپ طلوع زندگی"
+              >
+                تماس برای مشاوره
+              </a>
+
+              <Link href="/paziresh" className={styles.ctaSecondary}>
+                مشاهده شرایط پذیرش
+              </Link>
+            </div>
           </div>
         </div>
       </section>

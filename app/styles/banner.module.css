@@ -1,18 +1,18 @@
 /* ========================================
-   MOBILE FIRST
+   Banner
 ======================================== */
 
 .banner {
   position: relative;
 
   width: 100%;
-  height: 360px;
+  min-height: 360px;
+
+  margin-top: 40px;
 
   overflow: hidden;
 
-  margin-top: 35px;
-
-  border-radius: 18px;
+  border-radius: 20px;
 
   isolation: isolate;
 
@@ -30,7 +30,13 @@
 
   z-index: -2;
 
-  background: #53645b;
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(126, 157, 111, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #294534 0%, #3d5d48 50%, #53645b 100%);
 }
 
 /* ========================================
@@ -46,10 +52,12 @@
 
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.58) 0%,
-    rgba(0, 0, 0, 0.32) 50%,
-    rgba(0, 0, 0, 0.05) 100%
+    rgba(20, 35, 26, 0.78) 0%,
+    rgba(31, 52, 39, 0.52) 45%,
+    rgba(31, 52, 39, 0.18) 100%
   );
+
+  pointer-events: none;
 }
 
 /* ========================================
@@ -57,24 +65,22 @@
 ======================================== */
 
 .content {
-  position: relative;
-
   width: 100%;
-  height: 100%;
+  min-height: 360px;
 
   display: flex;
 
   flex-direction: column;
 
-  justify-content: center;
-
   align-items: flex-start;
 
-  padding: 24px;
+  justify-content: center;
 
-  text-align: right;
+  padding: 40px 24px;
 
   color: #ffffff;
+
+  text-align: right;
 }
 
 /* ========================================
@@ -82,15 +88,15 @@
 ======================================== */
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 
-  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 13px;
 
   font-weight: 500;
 
   line-height: 1.8;
-
-  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ========================================
@@ -98,11 +104,15 @@
 ======================================== */
 
 .title {
+  max-width: 600px;
+
   margin: 0;
 
-  font-size: 27px;
+  color: #ffffff;
 
-  font-weight: 700;
+  font-size: 29px;
+
+  font-weight: 800;
 
   line-height: 1.55;
 
@@ -114,17 +124,17 @@
 ======================================== */
 
 .description {
-  max-width: 340px;
+  max-width: 470px;
 
-  margin: 10px 0 0;
+  margin: 14px 0 0;
 
-  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 14px;
 
   font-weight: 400;
 
-  line-height: 1.9;
-
-  color: rgba(255, 255, 255, 0.9);
+  line-height: 2;
 }
 
 /* ========================================
@@ -136,15 +146,13 @@
 
   flex-direction: column;
 
-  align-items: stretch;
-
   gap: 10px;
 
   width: 100%;
 
-  max-width: 250px;
+  max-width: 260px;
 
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 /* ========================================
@@ -153,9 +161,7 @@
 
 .primaryButton,
 .secondaryButton {
-  width: 100%;
-
-  height: 44px;
+  min-height: 46px;
 
   display: inline-flex;
 
@@ -163,41 +169,66 @@
 
   justify-content: center;
 
-  gap: 8px;
+  gap: 9px;
 
-  padding: 0 18px;
+  padding: 0 20px;
 
   border-radius: 999px;
 
   font-family: inherit;
 
-  font-size: 12px;
+  font-size: 13px;
 
   font-weight: 600;
+
+  line-height: 1;
 
   text-decoration: none;
 
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+/* Primary */
 
 .primaryButton {
+  border: 1px solid #ffffff;
+
   background: #ffffff;
 
-  color: #27372d;
+  color: #294534;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
+
+.primaryButton:hover {
+  background: #f1f5ef;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Secondary */
 
 .secondaryButton {
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 
   color: #ffffff;
+
+  backdrop-filter: blur(6px);
 }
 
-.primaryButton:hover,
 .secondaryButton:hover {
+  border-color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.16);
+
   transform: translateY(-2px);
 }
 
@@ -207,8 +238,9 @@
 
 .icon,
 .arrow {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+
+  height: 17px;
 
   flex-shrink: 0;
 }
@@ -227,34 +259,52 @@
   stroke-linecap: round;
 
   stroke-linejoin: round;
+
+  transition: transform 0.25s ease;
+}
+
+.secondaryButton:hover .arrow {
+  transform: translateX(-4px);
 }
 
 /* ========================================
-   TABLET
-   768px+
+   Focus
+======================================== */
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+
+  outline-offset: 4px;
+}
+
+/* ========================================
+   Tablet
 ======================================== */
 
 @media (min-width: 768px) {
   .banner {
-    height: 320px;
+    min-height: 340px;
 
-    margin-top: 40px;
+    margin-top: 50px;
 
-    border-radius: 22px;
+    border-radius: 24px;
   }
 
   .content {
+    min-height: 340px;
+
     width: 70%;
 
-    padding-right: 40px;
+    padding: 48px 40px;
   }
 
   .title {
-    font-size: 31px;
+    font-size: 34px;
   }
 
   .description {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .actions {
@@ -269,64 +319,93 @@
 
   .primaryButton,
   .secondaryButton {
-    width: auto;
+    min-width: 145px;
 
-    min-width: 130px;
+    width: auto;
   }
 }
 
 /* ========================================
-   DESKTOP
-   1024px+
+   Desktop
 ======================================== */
 
 @media (min-width: 1024px) {
   .banner {
-    height: 280px;
+    min-height: 300px;
 
-    margin-top: 50px;
+    margin-top: 60px;
 
-    border-radius: 24px;
+    border-radius: 26px;
   }
 
   .content {
-    width: 55%;
+    min-height: 300px;
 
-    padding-right: 52px;
+    width: 60%;
+
+    padding: 48px 56px;
   }
 
   .eyebrow {
-    font-size: 13px;
+    font-size: 14px;
+
+    margin-bottom: 12px;
   }
 
   .title {
-    font-size: 34px;
+    font-size: clamp(34px, 3vw, 42px);
 
-    line-height: 1.45;
-
-    letter-spacing: -0.5px;
+    line-height: 1.5;
   }
 
   .description {
-    margin-top: 10px;
+    margin-top: 12px;
 
-    font-size: 13px;
+    font-size: 15px;
 
-    line-height: 1.8;
+    line-height: 2;
   }
 
   .actions {
     gap: 12px;
 
-    margin-top: 18px;
+    margin-top: 22px;
   }
 
   .primaryButton,
   .secondaryButton {
-    height: 42px;
+    min-height: 46px;
 
-    padding: 0 20px;
+    padding: 0 22px;
 
-    font-size: 12px;
+    font-size: 13px;
+  }
+}
+
+/* ========================================
+   Large Desktop
+======================================== */
+
+@media (min-width: 1440px) {
+  .banner {
+    min-height: 320px;
+  }
+
+  .content {
+    min-height: 320px;
+
+    padding-right: 70px;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton,
+  .arrow {
+    transition: none;
   }
 }

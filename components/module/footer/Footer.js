@@ -119,7 +119,7 @@ export default function Footer() {
             <div className={styles.contactItem}>
               <LuMail className={styles.contactIcon} aria-hidden="true" />
 
-              <a href="mailto:info@example.com">info@example.com</a>
+              <a href="mailto:info@example.com">info@toloozendegi.com</a>
             </div>
 
             <div className={styles.contactItem}>

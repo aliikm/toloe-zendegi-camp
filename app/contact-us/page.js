@@ -1,10 +1,10 @@
-import ContactPage from "../../components/module/contact/ContactPage";
+import ContactPage from "@/components/module/contact/ContactPage";
 
 export const metadata = {
   title: "تماس با ما | کمپ ترک اعتیاد طلوع زندگی",
 
   description:
-    "برای دریافت مشاوره، اطلاع از شرایط پذیرش و کسب اطلاعات بیشتر درباره کمپ طلوع زندگی با ما در تماس باشید.",
+    "برای دریافت مشاوره، اطلاع از شرایط پذیرش و کسب اطلاعات بیشتر درباره کمپ ترک اعتیاد طلوع زندگی با ما در تماس باشید.",
 
   keywords: [
     "تماس با کمپ طلوع زندگی",
@@ -16,9 +16,20 @@ export const metadata = {
 
   openGraph: {
     title: "تماس با کمپ ترک اعتیاد طلوع زندگی",
+
     description:
       "برای دریافت مشاوره و اطلاع از شرایط پذیرش با کمپ طلوع زندگی در تماس باشید.",
+
     type: "website",
+
+    locale: "fa_IR",
+
+    siteName: "کمپ ترک اعتیاد طلوع زندگی",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

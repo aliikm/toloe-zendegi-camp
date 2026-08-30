@@ -1,33 +1,53 @@
+import Image from "next/image";
+import Link from "next/link";
 import NavBar from "@/components/module/header/NavBar";
 import MobileMenu from "@/components/module/header/MobileMenu";
-import Image from "next/image";
 import styles from "@/app/styles/header.module.css";
 
 export default function Header() {
   return (
     <header className={styles.container}>
-      {/* دکمه مشاوره */}
+      {/* ========================================
+          Consultation
+      ======================================== */}
+
       <div className={styles.actions}>
-        <button>مشاوره رایگان</button>
+        <Link href="/contact-us" className={styles.consultationButton}>
+          مشاوره رایگان
+        </Link>
       </div>
 
-      {/* منوی دسکتاپ */}
-      <div className={styles.navbar}>
+      {/* ========================================
+          Desktop Navigation
+      ======================================== */}
+
+      <nav className={styles.navbar} aria-label="منوی اصلی">
         <NavBar />
-      </div>
+      </nav>
 
-      {/* لوگو */}
+      {/* ========================================
+          Logo
+      ======================================== */}
+
       <div className={styles.logo}>
-        <Image
-          src="/image/logo.png"
-          width={100}
-          height={100}
-          alt="طلوع زندگی"
-        />
+        <Link href="/" aria-label="صفحه اصلی طلوع زندگی">
+          <Image
+            src="/image/logo.png"
+            width={100}
+            height={100}
+            alt="لوگوی کمپ ترک اعتیاد طلوع زندگی"
+            priority
+          />
+        </Link>
       </div>
 
-      {/* منوی موبایل */}
-      <MobileMenu />
+      {/* ========================================
+          Mobile Menu
+      ======================================== */}
+
+      <div className={styles.mobileMenuWrapper}>
+        <MobileMenu />
+      </div>
     </header>
   );
 }

@@ -26,7 +26,9 @@
 .content {
   display: grid;
 
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
 
   align-items: center;
 
@@ -82,8 +84,10 @@
   transition: transform 0.7s ease;
 }
 
-.imageWrapper:hover .image {
-  transform: scale(1.035);
+@media (hover: hover) and (pointer: fine) {
+  .imageWrapper:hover .image {
+    transform: scale(1.035);
+  }
 }
 
 /* ========================================
@@ -92,10 +96,13 @@
 
 .textContent {
   display: flex;
-  direction: rtl;
+
   flex-direction: column;
+
   align-items: flex-start;
+
   max-width: 550px;
+  direction: rtl;
 }
 
 /* ========================================
@@ -104,10 +111,15 @@
 
 .eyebrow {
   display: inline-block;
+
   margin-bottom: 12px;
+
   color: #7f9d6f;
+
   font-size: 14px;
+
   font-weight: 600;
+
   line-height: 1.8;
 }
 
@@ -117,10 +129,15 @@
 
 .title {
   margin: 0;
+
   color: #24372b;
+
   font-size: clamp(28px, 3vw, 40px);
+
   font-weight: 800;
+
   line-height: 1.55;
+
   letter-spacing: -0.5px;
 }
 
@@ -130,10 +147,15 @@
 
 .description {
   max-width: 520px;
+
   margin: 22px 0 0;
+
   color: #70756f;
+
   font-size: 15px;
+
   font-weight: 400;
+
   line-height: 2.25;
 }
 
@@ -143,21 +165,33 @@
 
 .features {
   display: flex;
+
   flex-direction: column;
+
   gap: 12px;
+
   width: 100%;
+
   padding: 0;
+
   margin: 24px 0 0;
+
   list-style: none;
 }
 
 .feature {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   color: #59605a;
+
   font-size: 14px;
+
   font-weight: 500;
+
   line-height: 1.9;
 }
 
@@ -198,7 +232,6 @@
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 9px;

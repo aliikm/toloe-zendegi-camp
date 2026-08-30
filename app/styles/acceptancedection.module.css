@@ -1,10 +1,10 @@
 /* ========================================
-   MOBILE FIRST
+   SECTION
 ======================================== */
 
 .section {
   width: 100%;
-  padding: 55px 0;
+  padding: 64px 0;
 
   direction: rtl;
 
@@ -12,13 +12,13 @@
 }
 
 .container {
-  width: min(100% - 28px, 400px);
+  width: min(100% - 32px, 1280px);
 
   margin-inline: auto;
 }
 
 /* ========================================
-   Content
+   CONTENT
 ======================================== */
 
 .content {
@@ -28,11 +28,11 @@
 
   align-items: center;
 
-  gap: 40px;
+  gap: 44px;
 }
 
 /* ========================================
-   Text
+   TEXT CONTENT
 ======================================== */
 
 .textContent {
@@ -46,13 +46,13 @@
 .eyebrow {
   display: inline-block;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
-  color: #7f9d6f;
+  color: #66855d;
 
   font-size: 13px;
 
-  font-weight: 600;
+  font-weight: 700;
 
   line-height: 1.8;
 }
@@ -72,7 +72,7 @@
 }
 
 .description {
-  max-width: 600px;
+  max-width: 650px;
 
   margin: 18px 0 0;
 
@@ -86,7 +86,7 @@
 }
 
 /* ========================================
-   Benefits
+   BENEFITS
 ======================================== */
 
 .benefits {
@@ -94,11 +94,11 @@
 
   flex-direction: column;
 
-  gap: 11px;
+  gap: 12px;
 
   padding: 0;
 
-  margin: 22px 0 0;
+  margin: 24px 0 0;
 
   list-style: none;
 }
@@ -108,7 +108,7 @@
 
   align-items: center;
 
-  gap: 9px;
+  gap: 10px;
 
   color: #4f5951;
 
@@ -120,8 +120,8 @@
 }
 
 .check {
-  width: 20px;
-  height: 20px;
+  width: 21px;
+  height: 21px;
 
   flex-shrink: 0;
 
@@ -132,9 +132,9 @@
 
   border-radius: 50%;
 
-  color: #62805a;
+  color: #55764f;
 
-  background: #e5eee0;
+  background: #e4eddf;
 }
 
 .check svg {
@@ -145,25 +145,24 @@
 }
 
 /* ========================================
-   Button
+   BUTTON
 ======================================== */
 
 .button {
-  width: 100%;
-
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 9px;
 
+  width: 100%;
+
   min-height: 48px;
 
-  margin-top: 26px;
+  margin-top: 28px;
 
-  padding: 0 20px;
+  padding: 0 22px;
 
   border-radius: 12px;
 
@@ -177,27 +176,27 @@
 
   text-decoration: none;
 
-  box-shadow: 0 10px 25px rgba(49, 85, 59, 0.14);
+  box-shadow: 0 8px 22px rgba(49, 85, 59, 0.12);
 
   transition:
-    background-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .button svg {
   width: 17px;
   height: 17px;
 
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .button:hover {
   background: #27452f;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 
-  box-shadow: 0 14px 30px rgba(49, 85, 59, 0.2);
+  box-shadow: 0 12px 28px rgba(49, 85, 59, 0.18);
 }
 
 .button:hover svg {
@@ -205,13 +204,13 @@
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(127, 157, 111, 0.35);
+  outline: 3px solid rgba(102, 133, 93, 0.35);
 
   outline-offset: 4px;
 }
 
 /* ========================================
-   Cards
+   FEATURE CARDS
 ======================================== */
 
 .cards {
@@ -223,9 +222,9 @@
 }
 
 .card {
-  min-height: 210px;
+  min-height: 205px;
 
-  padding: 24px 20px;
+  padding: 26px 22px;
 
   display: flex;
 
@@ -235,30 +234,30 @@
 
   justify-content: flex-start;
 
-  border: 1px solid #e2e8de;
+  border: 1px solid #e1e8de;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
   background: #ffffff;
 
-  box-shadow: 0 12px 35px rgba(44, 63, 48, 0.06);
+  box-shadow: 0 8px 26px rgba(44, 63, 48, 0.045);
 
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-5px);
 
   border-color: #ccd9c5;
 
-  box-shadow: 0 20px 45px rgba(44, 63, 48, 0.1);
+  box-shadow: 0 15px 35px rgba(44, 63, 48, 0.08);
 }
 
 /* ========================================
-   Icon
+   ICON
 ======================================== */
 
 .iconWrapper {
@@ -272,7 +271,7 @@
 
   margin-bottom: 18px;
 
-  border-radius: 16px;
+  border-radius: 15px;
 
   color: #66855d;
 
@@ -283,8 +282,12 @@
   width: 25px;
   height: 25px;
 
-  stroke-width: 1.6;
+  stroke-width: 1.7;
 }
+
+/* ========================================
+   CARD TYPOGRAPHY
+======================================== */
 
 .card h3 {
   margin: 0;
@@ -312,20 +315,19 @@
 
 /* ========================================
    TABLET
-   768px+
 ======================================== */
 
 @media (min-width: 768px) {
   .section {
-    padding: 75px 0;
+    padding: 76px 0;
   }
 
   .container {
-    width: min(100% - 48px, 700px);
+    width: min(100% - 48px, 900px);
   }
 
   .content {
-    gap: 50px;
+    gap: 52px;
   }
 
   .title {
@@ -343,7 +345,7 @@
   }
 
   .card {
-    min-height: 230px;
+    min-height: 220px;
 
     padding: 28px 24px;
   }
@@ -355,32 +357,33 @@
 
 /* ========================================
    DESKTOP
-   1024px+
 ======================================== */
 
 @media (min-width: 1024px) {
   .section {
-    padding: 100px 0;
+    padding: 96px 0;
   }
 
   .container {
-    width: min(100% - 48px, 1240px);
+    width: min(100% - 64px, 1280px);
   }
 
   .content {
     grid-template-columns:
-      minmax(0, 1.05fr)
-      minmax(0, 0.95fr);
+      minmax(0, 1.1fr)
+      minmax(0, 0.9fr);
 
     gap: 80px;
   }
 
   .title {
-    font-size: clamp(30px, 3.4vw, 44px);
+    font-size: clamp(34px, 3.2vw, 46px);
+
+    line-height: 1.5;
   }
 
   .description {
-    max-width: 600px;
+    max-width: 650px;
 
     margin-top: 22px;
 
@@ -392,7 +395,7 @@
   .benefits {
     gap: 13px;
 
-    margin-top: 25px;
+    margin-top: 26px;
   }
 
   .benefits li {
@@ -400,31 +403,31 @@
   }
 
   .button {
-    min-height: 48px;
+    min-height: 50px;
 
     margin-top: 30px;
 
-    padding: 0 22px;
+    padding: 0 24px;
 
-    border-radius: 14px;
+    border-radius: 13px;
   }
 
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 18px;
   }
 
   .card {
-    min-height: 250px;
+    min-height: 235px;
 
-    padding: 32px 28px;
+    padding: 30px 26px;
 
-    border-radius: 24px;
+    border-radius: 20px;
   }
 
   .iconWrapper {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .card h3 {
@@ -432,10 +435,26 @@
   }
 
   .card p {
-    margin-top: 10px;
+    margin-top: 9px;
 
     font-size: 13px;
 
     line-height: 2.1;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP
+======================================== */
+
+@media (min-width: 1280px) {
+  .content {
+    gap: 96px;
+  }
+
+  .card {
+    min-height: 245px;
+
+    padding: 32px 28px;
   }
 }

@@ -11,18 +11,31 @@ const initialFormData = {
   message: "",
 };
 
+const initialStatus = {
+  type: "",
+  message: "",
+};
+
 export default function ContactForm() {
   const [formData, setFormData] = useState(initialFormData);
 
-  const [status, setStatus] = useState({
-    type: "",
-    message: "",
-  });
+  const [status, setStatus] = useState(initialStatus);
 
   const [loading, setLoading] = useState(false);
 
   // =====================================================
-  // Handle input changes
+  // Normalize phone
+  // =====================================================
+
+  function normalizePhone(phone) {
+    return phone
+      .trim()
+      .replace(/[۰-۹]/g, (digit) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)))
+      .replace(/[^\d+]/g, "");
+  }
+
+  // =====================================================
+  // Handle change
   // =====================================================
 
   function handleChange(event) {
@@ -33,22 +46,19 @@ export default function ContactForm() {
       [name]: value,
     }));
 
-    // پاک کردن پیام خطا هنگام تغییر فرم
     if (status.message) {
-      setStatus({
-        type: "",
-        message: "",
-      });
+      setStatus(initialStatus);
     }
   }
 
   // =====================================================
-  // Validate form
+  // Validate
   // =====================================================
 
   function validateForm() {
     const name = formData.name.trim();
-    const phone = formData.phone.trim();
+
+    const phone = normalizePhone(formData.phone);
 
     if (!name) {
       return "لطفاً نام و نام خانوادگی خود را وارد کنید.";
@@ -62,10 +72,22 @@ export default function ContactForm() {
       return "لطفاً شماره تماس خود را وارد کنید.";
     }
 
-    // حذف فاصله و کاراکترهای غیرعددی برای بررسی شماره
-    const normalizedPhone = phone.replace(/\D/g, "");
+    // شماره ایرانی
+    const iranianMobilePattern = /^(\+98|0098|98|0)?9\d{9}$/;
 
-    if (normalizedPhone.length < 10 || normalizedPhone.length > 15) {
+    const normalizedIranianPhone = phone
+      .replace(/^0098/, "+98")
+      .replace(/^98/, "+98");
+
+    const isIranianMobile = iranianMobilePattern.test(normalizedIranianPhone);
+
+    // اگر شماره ایرانی نیست، حداقل اعتبار عمومی را بررسی می‌کنیم
+    const digitsOnly = phone.replace(/\D/g, "");
+
+    if (
+      !isIranianMobile &&
+      (digitsOnly.length < 10 || digitsOnly.length > 15)
+    ) {
       return "لطفاً یک شماره تماس معتبر وارد کنید.";
     }
 
@@ -79,17 +101,12 @@ export default function ContactForm() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // جلوگیری از ارسال دوباره
     if (loading) {
       return;
     }
 
-    setStatus({
-      type: "",
-      message: "",
-    });
+    setStatus(initialStatus);
 
-    // Validation
     const validationError = validateForm();
 
     if (validationError) {
@@ -122,14 +139,28 @@ export default function ContactForm() {
         }),
       });
 
-      const data = await response.json();
+      // =================================================
+      // Safe JSON parsing
+      // =================================================
 
-      // اگر API خطا برگرداند
-      if (!response.ok) {
-        throw new Error(data?.message || "ارسال درخواست انجام نشد.");
+      let data = null;
+
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
       }
 
-      // موفقیت
+      if (!response.ok) {
+        throw new Error(
+          data?.message || "ارسال درخواست انجام نشد. لطفاً دوباره تلاش کنید.",
+        );
+      }
+
+      // =================================================
+      // Success
+      // =================================================
+
       setStatus({
         type: "success",
 
@@ -138,7 +169,6 @@ export default function ContactForm() {
           "درخواست شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیریم.",
       });
 
-      // پاک کردن فرم
       setFormData(initialFormData);
     } catch (error) {
       console.error("CONTACT FORM ERROR:", error);
@@ -173,7 +203,7 @@ export default function ContactForm() {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            placeholder="مثلاً علی احمدی"
+            placeholder="نام و نام خانوادگی"
             autoComplete="name"
             maxLength={100}
             required
@@ -225,6 +255,8 @@ export default function ContactForm() {
 
           <option value="پذیرش بانوان">پذیرش بانوان</option>
 
+          <option value="پذیرش آقایان">پذیرش آقایان</option>
+
           <option value="پذیرش از سراسر کشور">پذیرش از سراسر کشور</option>
 
           <option value="سایر موارد">سایر موارد</option>
@@ -251,7 +283,7 @@ export default function ContactForm() {
       </div>
 
       {/* =================================================
-          STATUS MESSAGE
+          STATUS
       ================================================== */}
 
       {status.message && (
@@ -294,7 +326,8 @@ export default function ContactForm() {
       ================================================== */}
 
       <p className={styles.formNote}>
-        اطلاعات شما صرفاً برای پاسخگویی به درخواست مشاوره استفاده خواهد شد.
+        اطلاعات شما صرفاً برای پاسخگویی به درخواست مشاوره استفاده خواهد شد و
+        بدون هماهنگی در اختیار دیگران قرار نمی‌گیرد.
       </p>
     </form>
   );

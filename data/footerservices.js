@@ -2,22 +2,22 @@ export const footerServices = [
   {
     id: 1,
     title: "درمان اقامتی",
-    href: "/services/residential",
+    href: "",
   },
   {
     id: 2,
     title: "درمان سرپایی",
-    href: "/services/outpatient",
+    href: "",
   },
   {
     id: 3,
     title: "مشاوره خانواده",
-    href: "/services/family",
+    href: "",
   },
   {
     id: 4,
     title: "بازتوانی و بهبودی",
-    href: "/services/rehab",
+    href: "",
   },
 ];
 
@@ -25,21 +25,21 @@ export const footerLinks = [
   {
     id: 1,
     title: "درباره ما",
-    href: "/about",
+    href: "",
   },
   {
     id: 2,
     title: "برنامه‌های درمانی",
-    href: "/plans",
+    href: "",
   },
   {
     id: 3,
     title: "پزشکان",
-    href: "/doctors",
+    href: "",
   },
   {
     id: 4,
     title: "تماس با ما",
-    href: "/contact",
+    href: "",
   },
 ];

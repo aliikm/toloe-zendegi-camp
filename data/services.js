@@ -1,43 +1,43 @@
 import {
-  LuTrees,
-  LuUsers,
-  LuMessagesSquare,
+  LuUserRound,
+  LuUsersRound,
+  LuHeartHandshake,
   LuShieldCheck,
 } from "react-icons/lu";
 
 export const services = [
   {
     id: 1,
-    title: "درمان انفرادی",
+    title: "درمان فردی",
     description:
-      "برنامه درمانی اختصاصی متناسب با شرایط هر فرد برای رسیدن به بهبودی پایدار.",
+      "بررسی شرایط هر فرد و همراهی در مسیر درمان با توجه به نیازها و شرایط اختصاصی او.",
     image: "/image/individual-therapy.jpg",
-    icon: LuTrees,
+    icon: LuUserRound,
   },
 
   {
     id: 2,
     title: "درمان گروهی",
     description:
-      "جلسات گروهی با حضور درمانگران و افراد در مسیر بهبودی برای افزایش انگیزه.",
+      "جلسات گروهی و فعالیت‌های حمایتی برای تقویت انگیزه، مسئولیت‌پذیری و همراهی در مسیر بهبودی.",
     image: "/image/group-therapy.jpg",
-    icon: LuUsers,
+    icon: LuUsersRound,
   },
 
   {
     id: 3,
-    title: "مشاوره خانواده",
+    title: "حمایت و مشاوره خانواده",
     description:
-      "آموزش و همراهی خانواده در تمام مراحل درمان و بازگشت به زندگی سالم.",
-    image: "/image/prevention-recovery.jpg",
-    icon: LuMessagesSquare,
+      "آموزش و همراهی خانواده برای شناخت بهتر فرایند درمان و حمایت مؤثر از فرد در مسیر بهبودی.",
+    image: "/image/family-support.jpg",
+    icon: LuHeartHandshake,
   },
 
   {
     id: 4,
-    title: "پیشگیری و بازتوانی",
+    title: "بازتوانی و پیشگیری از بازگشت",
     description:
-      "پیگیری وضعیت افراد پس از درمان برای جلوگیری از بازگشت اعتیاد.",
+      "تمرکز بر بازگشت تدریجی به زندگی سالم و تقویت مهارت‌های لازم برای ادامه مسیر پس از درمان.",
     image: "/image/rehabilitation-wellbeing.jpg",
     icon: LuShieldCheck,
   },

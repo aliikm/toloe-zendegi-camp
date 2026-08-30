@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <nav className={styles.navbarcontainer}>
       <div className={styles.navbar}>
-        <Link href="/blog">بلاگ</Link>
+        <Link href="">بلاگ</Link>
 
         <Link href="/servic">خدمات</Link>
 
@@ -13,7 +13,7 @@ export default function NavBar() {
 
         <Link href="/aboutus">درباره ما</Link>
 
-        <Link href="/paziresh">پذیرش</Link>
+        <Link href="/acceptance">پذیرش</Link>
 
         <Link href="/">صفحه اصلی</Link>
       </div>

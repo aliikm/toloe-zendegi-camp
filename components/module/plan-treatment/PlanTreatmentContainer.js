@@ -1,26 +1,39 @@
-import styles from "../../../app/styles/plantreatment.module.css";
+import styles from "@/app/styles/plantreatment.module.css";
 import ServiceCard from "@/components/module/plan-treatment/ServiceCard";
 import { services } from "@/data/services";
+
 export default function PlanTreatmentContainer() {
   return (
-    <>
-      <section className={`${styles.container} container`}>
-        <div className={styles.headercontainer}>
-          <span className={styles.label}>برنامه‌های درمانی ما</span>
+    <section
+      className={`${styles.container} container`}
+      aria-labelledby="treatment-programs-title"
+    >
+      {/* =========================
+          Section Header
+      ========================== */}
 
-          <h2 className={styles.title}>درمان علمی، انسانی و پایدار</h2>
+      <header className={styles.headercontainer}>
+        <span className={styles.label}>خدمات و برنامه‌های درمانی</span>
 
-          <p className={styles.description}>
-            برنامه‌های درمانی ما متناسب با شرایط و نیاز هر فرد طراحی می‌شوند تا
-            بهترین نتیجه درمانی حاصل شود.
-          </p>
-        </div>
-        <div className={styles.servicesGrid}>
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
-    </>
+        <h2 id="treatment-programs-title" className={styles.title}>
+          برنامه‌های درمان و بازتوانی اعتیاد
+        </h2>
+
+        <p className={styles.description}>
+          برنامه‌های درمانی و حمایتی طلوع زندگی با توجه به شرایط هر فرد، با
+          تمرکز بر درمان، بازتوانی و ادامه مسیر بهبودی ارائه می‌شوند.
+        </p>
+      </header>
+
+      {/* =========================
+          Services
+      ========================== */}
+
+      <div className={styles.servicesGrid}>
+        {services.map((service) => (
+          <ServiceCard key={service.id} service={service} />
+        ))}
+      </div>
+    </section>
   );
 }

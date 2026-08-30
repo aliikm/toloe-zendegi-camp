@@ -3,24 +3,28 @@ import styles from "@/app/styles/banner.module.css";
 
 export default function Banner() {
   return (
-    <section className={`${styles.banner} container`}>
-      {/* بعداً عکس Background اینجا قرار می‌گیرد */}
-      <div className={styles.background} />
+    <section
+      className={`${styles.banner} container`}
+      aria-labelledby="banner-title"
+    >
+      {/* Background */}
+      <div className={styles.background} aria-hidden="true" />
 
-      {/* لایه تیره روی تصویر */}
-      <div className={styles.overlay} />
+      {/* Overlay */}
+      <div className={styles.overlay} aria-hidden="true" />
 
+      {/* Content */}
       <div className={styles.content}>
         <p className={styles.eyebrow}>همین امروز قدم اول را بردارید</p>
 
-        <h2 className={styles.title}>
+        <h2 id="banner-title" className={styles.title}>
           برای آینده‌ای روشن،
           <br />
           ما در کنار شما هستیم
         </h2>
 
         <p className={styles.description}>
-          مشاوره رایگان و کاملاً محرمانه، همین حالا با ما تماس بگیرید
+          مشاوره اولیه و محرمانه برای آشنایی با روند پذیرش و درمان.
         </p>
 
         <div className={styles.actions}>
@@ -32,8 +36,8 @@ export default function Banner() {
             </svg>
           </Link>
 
-          <Link href="/contact-us" className={styles.secondaryButton}>
-            <span>درخواست مشاوره</span>
+          <Link href="/acceptance" className={styles.secondaryButton}>
+            <span>درخواست پذیرش</span>
 
             <svg
               className={styles.arrow}

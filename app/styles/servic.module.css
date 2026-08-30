@@ -22,32 +22,29 @@
   display: flex;
   align-items: center;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(22, 43, 30, 0.96),
-      rgba(22, 43, 30, 0.68),
-      rgba(22, 43, 30, 0.28)
-    ),
-    url("/images/services-hero.jpg");
+  background-image: url("/image/banner1.png");
 
   background-size: cover;
+
   background-position: center;
 }
-
 .heroOverlay {
   position: absolute;
+
   inset: 0;
 
   background: linear-gradient(
-    180deg,
-    rgba(13, 29, 20, 0.08),
-    rgba(13, 29, 20, 0.3)
+    360deg,
+    rgba(20, 43, 28, 0.94) 0%,
+    rgba(20, 43, 28, 0.72) 45%,
+    rgba(20, 43, 28, 0.3) 60%
   );
-}
 
+  z-index: 1;
+}
 .heroContainer {
   position: relative;
+
   z-index: 2;
 
   width: min(1180px, calc(100% - 40px));
@@ -88,6 +85,7 @@
   font-weight: 800;
 
   letter-spacing: -0.04em;
+  color: #c9c7c7;
 }
 
 .heroDescription {
@@ -670,41 +668,95 @@
 }
 
 /* =========================================================
-   ACCEPTANCE
+   ACCEPTANCE IMAGE BANNER
 ========================================================= */
 
 .acceptance {
+  position: relative;
+
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+
   padding: 100px 0;
 
-  background: linear-gradient(120deg, #294632, #3d5e45);
+  background-image: url("/image/banner2.png");
 
-  color: #fff;
+  background-size: cover;
+
+  background-position: center;
+
+  overflow: hidden;
+}
+
+/* لایه تاریک روی تصویر */
+
+.acceptanceOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(25, 49, 33, 0.94) 0%,
+    rgba(25, 49, 33, 0.78) 25%,
+    rgba(25, 49, 33, 0.38) 40%
+  );
+
+  z-index: 1;
+}
+
+/* محتوا بالای Overlay */
+
+.acceptance .container {
+  position: relative;
+
+  z-index: 2;
 }
 
 .acceptanceContent {
-  max-width: 780px;
-}
+  max-width: 760px;
 
-.acceptance .eyebrow {
-  color: #c6d8c6;
-}
-
-.acceptanceContent h2 {
   color: #fff;
 }
 
+.acceptanceContent .eyebrow {
+  color: #c9dcc7;
+}
+
+.acceptanceContent h2 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(2rem, 4vw, 3.3rem);
+
+  line-height: 1.4;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
 .acceptanceContent p {
-  max-width: 650px;
+  max-width: 680px;
 
-  margin: 25px 0;
+  margin: 25px 0 30px;
 
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 1rem;
 
   line-height: 2;
 }
 
+/* دکمه‌ها */
+
 .acceptanceActions {
   display: flex;
+
+  align-items: center;
 
   gap: 12px;
 
@@ -713,10 +765,58 @@
   margin-top: 30px;
 }
 
-.outlineButton {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.acceptanceActions .primaryButton {
+  background: #d6e5d1;
+
+  color: #294430;
+}
+
+.acceptanceActions .outlineButton {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+
+  background: rgba(255, 255, 255, 0.06);
 
   color: #fff;
+
+  backdrop-filter: blur(5px);
+}
+
+.acceptanceActions .primaryButton:hover,
+.acceptanceActions .outlineButton:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .acceptance {
+    min-height: 560px;
+
+    padding: 80px 0;
+
+    background-position: center;
+  }
+
+  .acceptanceContent h2 {
+    font-size: 2rem;
+  }
+
+  .acceptanceContent p {
+    font-size: 0.9rem;
+  }
+
+  .acceptanceActions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .acceptanceActions .primaryButton,
+  .acceptanceActions .outlineButton {
+    width: 100%;
+  }
 }
 
 /* =========================================================

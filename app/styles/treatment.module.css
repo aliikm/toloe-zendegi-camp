@@ -1,99 +1,248 @@
-/* =========================
-   MOBILE FIRST
-========================= */
+/* ========================================
+   SECTION
+======================================== */
 
-.container {
-  direction: rtl;
-
+.section {
   width: 100%;
-
-  min-height: auto;
-
-  display: grid;
-
-  grid-template-columns: 1fr;
-
-  align-items: center;
-
-  gap: 24px;
-
-  padding: 32px 16px;
+  background: #ffffff;
+  direction: rtl;
 }
 
-/* هر آیتم */
+.container {
+  width: 100%;
+  max-width: 1280px;
 
-.container div {
-  display: flex;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
 
-  flex-direction: column;
+/* ========================================
+   HEADING
+======================================== */
 
-  align-items: center;
+.heading {
+  max-width: 720px;
 
-  justify-content: center;
+  margin: 0 auto 48px;
 
   text-align: center;
 }
 
-/* آیکون */
+.eyebrow {
+  display: inline-block;
 
-.icon {
-  width: 64px;
-  height: 64px;
+  margin-bottom: 12px;
 
   color: #49684d;
 
-  border: none;
-
-  border-radius: 50px;
-
-  background-color: #f3f6f0;
-
-  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-/* =========================
+.heading h2 {
+  margin: 0 0 16px;
+
+  color: #24352a;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  line-height: 1.5;
+}
+
+.heading p {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  color: #657168;
+
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border: 1px solid #e8ece8;
+  border-radius: 20px;
+
+  background: #e8ece8;
+}
+
+/* ========================================
+   ITEM
+======================================== */
+
+.card {
+  min-height: 220px;
+
+  padding: 32px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card:hover {
+  background: #f9fbf8;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.icon {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 18px;
+
+  padding: 12px;
+
+  color: #49684d;
+
+  background: #f1f5ef;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+/* ========================================
+   TITLE
+======================================== */
+
+.card h3 {
+  margin: 0 0 10px;
+
+  color: #26372c;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.7;
+}
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.card p {
+  max-width: 230px;
+
+  margin: 0;
+
+  color: #6b756e;
+
+  font-size: 13px;
+
+  line-height: 2;
+}
+
+/* ========================================
    TABLET
-========================= */
+======================================== */
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .container {
+    padding: 72px 32px;
+  }
+
+  .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
 
-    gap: 32px;
-
-    padding: 40px 32px;
+  .card {
+    min-height: 230px;
   }
 }
 
-/* =========================
+/* ========================================
    DESKTOP
-========================= */
+======================================== */
 
 @media (min-width: 1024px) {
   .container {
-    min-height: 200px;
-
-    grid-template-columns: repeat(6, 1fr);
-
-    gap: 24px;
-
-    padding: 0;
+    padding: 88px 32px;
   }
 
-  .container div {
-    display: flex;
+  .heading {
+    margin-bottom: 56px;
+  }
 
-    align-items: center;
+  .heading h2 {
+    font-size: 36px;
+  }
 
-    justify-content: center;
+  .heading p {
+    font-size: 16px;
+  }
 
-    text-align: center;
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    min-height: 250px;
+
+    padding: 36px 28px;
   }
 
   .icon {
-    width: 72px;
-    height: 72px;
+    width: 58px;
+    height: 58px;
 
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+
+    padding: 13px;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP
+======================================== */
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .card {
+    min-height: 260px;
+
+    padding: 32px 18px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
   }
 }
