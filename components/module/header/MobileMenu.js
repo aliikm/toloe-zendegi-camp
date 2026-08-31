@@ -1,37 +1,91 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+
 import styles from "@/app/styles/header.module.css";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
 
-  const closeMenu = () => {
+  function closeMenu() {
     setOpen(false);
-  };
+  }
+
+  function openMenu() {
+    setOpen(true);
+  }
+
+  /* =====================================================
+     ESC + BODY SCROLL LOCK
+  ====================================================== */
+
+  useEffect(() => {
+    if (!open) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <>
-      {/* Hamburger Button */}
+      {/* =================================================
+          HAMBURGER BUTTON
+      ================================================== */}
 
       <button
         type="button"
         className={styles.menuButton}
-        onClick={() => setOpen(true)}
-        aria-label="باز کردن منو"
+        onClick={openMenu}
+        aria-label="باز کردن منوی سایت"
         aria-expanded={open}
+        aria-controls="mobile-navigation"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </button>
 
-      {/* Mobile Menu */}
+      {/* =================================================
+          OVERLAY
+      ================================================== */}
 
-      <div
+      {open && (
+        <div
+          className={styles.mobileOverlay}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* =================================================
+          MOBILE MENU
+      ================================================== */}
+
+      <aside
+        id="mobile-navigation"
         className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
+        aria-hidden={!open}
       >
+        {/* =================================================
+            MENU HEADER
+        ================================================== */}
+
         <div className={styles.mobileMenuHeader}>
           <span className={styles.mobileMenuTitle}>منوی سایت</span>
 
@@ -39,42 +93,56 @@ export default function MobileMenu() {
             type="button"
             className={styles.closeButton}
             onClick={closeMenu}
-            aria-label="بستن منو"
+            aria-label="بستن منوی سایت"
           >
-            ×
+            <span aria-hidden="true">×</span>
           </button>
         </div>
 
-        <nav className={styles.mobileNav}>
+        {/* =================================================
+            NAVIGATION
+        ================================================== */}
+
+        <nav className={styles.mobileNav} aria-label="منوی موبایل">
           <Link href="/" onClick={closeMenu}>
             صفحه اصلی
-          </Link>
-
-          <Link href="/paziresh" onClick={closeMenu}>
-            پذیرش
           </Link>
 
           <Link href="/aboutus" onClick={closeMenu}>
             درباره ما
           </Link>
 
-          <Link href="/contact-us" onClick={closeMenu}>
-            تماس با ما
-          </Link>
-
           <Link href="/servic" onClick={closeMenu}>
             خدمات
+          </Link>
+
+          <Link href="/acceptance" onClick={closeMenu}>
+            پذیرش
+          </Link>
+
+          <Link href="/contact-us" onClick={closeMenu}>
+            تماس با ما
           </Link>
 
           <Link href="/blog" onClick={closeMenu}>
             بلاگ
           </Link>
         </nav>
-      </div>
 
-      {/* Overlay */}
+        {/* =================================================
+            MOBILE MENU CTA
+        ================================================== */}
 
-      {open && <div className={styles.mobileOverlay} onClick={closeMenu} />}
+        <div className={styles.mobileMenuFooter}>
+          <Link
+            href="/contact-us"
+            className={styles.mobileConsultationButton}
+            onClick={closeMenu}
+          >
+            دریافت مشاوره
+          </Link>
+        </div>
+      </aside>
     </>
   );
 }

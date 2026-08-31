@@ -49,36 +49,28 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-
       "max-image-preview": "large",
-
       "max-snippet": -1,
-
       "max-video-preview": -1,
     },
   },
 
   openGraph: {
     type: "website",
-
     locale: "fa_IR",
-
     siteName: "طلوع زندگی",
 
     title: "طلوع زندگی | مرکز درمان و بازتوانی",
 
     description: "آشنایی با خدمات، امکانات و مسیر درمان و بازتوانی طلوع زندگی.",
 
-    url: "https://toloozendegi.ir",
+    url: "https://toloozendegi.com",
 
     images: [
       {
         url: "/images/og-image.jpg",
-
         width: 1200,
-
         height: 630,
-
         alt: "طلوع زندگی | مرکز درمان و بازتوانی",
       },
     ],

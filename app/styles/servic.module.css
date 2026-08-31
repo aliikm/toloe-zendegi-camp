@@ -1,12 +1,20 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
 .page {
   overflow: hidden;
+
   background: #f7f8f4;
+
   color: #26372c;
+
   direction: rtl;
 }
 
 .container {
   width: min(1180px, calc(100% - 40px));
+
   margin-inline: auto;
 }
 
@@ -20,28 +28,42 @@
   min-height: 620px;
 
   display: flex;
+
   align-items: center;
 
-  background-image: url("/image/banner1.png");
-
-  background-size: cover;
-
-  background-position: center;
+  overflow: hidden;
 }
+
+.heroImage {
+  position: absolute !important;
+
+  inset: 0;
+
+  z-index: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
 .heroOverlay {
   position: absolute;
 
   inset: 0;
 
-  background: linear-gradient(
-    360deg,
-    rgba(20, 43, 28, 0.94) 0%,
-    rgba(20, 43, 28, 0.72) 45%,
-    rgba(20, 43, 28, 0.3) 60%
-  );
-
   z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 43, 28, 0.9) 0%,
+    rgba(20, 43, 28, 0.7) 45%,
+    rgba(20, 43, 28, 0.25) 100%
+  );
 }
+
 .heroContainer {
   position: relative;
 
@@ -66,9 +88,10 @@
   color: #6e8b72;
 
   font-size: 0.82rem;
+
   font-weight: 700;
 
-  letter-spacing: 0.04em;
+  line-height: 1.7;
 }
 
 .hero .eyebrow {
@@ -78,14 +101,15 @@
 .heroTitle {
   margin: 0;
 
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: #fff;
 
-  line-height: 1.2;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
 
   font-weight: 800;
 
+  line-height: 1.25;
+
   letter-spacing: -0.04em;
-  color: #c9c7c7;
 }
 
 .heroDescription {
@@ -93,7 +117,7 @@
 
   margin: 28px 0 0;
 
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.84);
 
   font-size: 1.05rem;
 
@@ -102,6 +126,8 @@
 
 .heroActions {
   display: flex;
+
+  align-items: center;
 
   gap: 12px;
 
@@ -121,6 +147,7 @@
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   min-height: 52px;
@@ -133,22 +160,45 @@
 
   font-weight: 700;
 
+  line-height: 1.5;
+
   text-decoration: none;
 
   transition:
     transform 180ms ease,
     background-color 180ms ease,
-    border-color 180ms ease;
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .primaryButton {
+  border: 1px solid transparent;
+
   background: #d4e4cf;
 
   color: #263b2b;
 }
 
 .secondaryButton {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #fff;
+}
+
+.outlineButton {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #fff;
+}
+
+.ctaButton {
+  gap: 10px;
+
+  background: #2d4a35;
 
   color: #fff;
 }
@@ -186,9 +236,9 @@
 
   font-size: clamp(2rem, 4vw, 3.2rem);
 
-  line-height: 1.35;
-
   font-weight: 800;
+
+  line-height: 1.4;
 
   letter-spacing: -0.035em;
 }
@@ -256,11 +306,14 @@
 
   transition:
     transform 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 .facilityCard:hover {
   transform: translateY(-5px);
+
+  border-color: #dbe5d8;
 
   box-shadow: 0 20px 50px rgba(36, 59, 43, 0.08);
 }
@@ -269,9 +322,11 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 52px;
+
   height: 52px;
 
   margin-bottom: 45px;
@@ -283,12 +338,18 @@
   color: #527258;
 
   font-size: 1.4rem;
+
+  font-weight: 700;
 }
 
 .facilityCard h3 {
   margin: 0 0 12px;
 
+  color: #2c3d31;
+
   font-size: 1.2rem;
+
+  line-height: 1.6;
 }
 
 .facilityCard p {
@@ -341,6 +402,10 @@
   text-decoration: none;
 }
 
+.textLink:hover {
+  color: #263f2d;
+}
+
 .treatmentList {
   border-top: 1px solid rgba(55, 81, 61, 0.18);
 }
@@ -367,6 +432,10 @@
 
 .treatmentItem h3 {
   margin: 0 0 8px;
+
+  color: #2c3d31;
+
+  font-size: 1.15rem;
 }
 
 .treatmentItem p {
@@ -378,7 +447,7 @@
 }
 
 /* =========================================================
-   SUBSTANCE TREATMENT
+   SUBSTANCES
 ========================================================= */
 
 .substances {
@@ -400,9 +469,9 @@
 
   font-size: clamp(2rem, 4vw, 3.2rem);
 
-  line-height: 1.4;
-
   font-weight: 800;
+
+  line-height: 1.4;
 
   letter-spacing: -0.035em;
 }
@@ -420,7 +489,7 @@
 }
 
 /* =========================================================
-   GROUPS
+   SUBSTANCE GROUPS
 ========================================================= */
 
 .substanceGroups {
@@ -457,9 +526,11 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 52px;
+
   height: 52px;
 
   flex-shrink: 0;
@@ -492,7 +563,7 @@
 }
 
 /* =========================================================
-   LIST
+   SUBSTANCE LIST
 ========================================================= */
 
 .substanceList {
@@ -529,9 +600,11 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 20px;
+
   height: 20px;
 
   flex-shrink: 0;
@@ -586,30 +659,6 @@
 }
 
 /* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 800px) {
-  .substances {
-    padding: 80px 0;
-  }
-
-  .substanceGroups {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .substanceGroup {
-    padding: 25px;
-  }
-
-  .substanceList {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
    RECOVERY
 ========================================================= */
 
@@ -639,6 +688,16 @@
   border-radius: 18px;
 
   background: #f7f8f4;
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 40px rgba(36, 59, 43, 0.07);
 }
 
 .stepNumber {
@@ -655,6 +714,10 @@
 
 .step h3 {
   margin: 0 0 10px;
+
+  color: #2c3d31;
+
+  font-size: 1.1rem;
 }
 
 .step p {
@@ -668,7 +731,8 @@
 }
 
 /* =========================================================
-   ACCEPTANCE IMAGE BANNER
+   ACCEPTANCE
+   مهم: دیگر background-image نداریم
 ========================================================= */
 
 .acceptance {
@@ -677,37 +741,43 @@
   min-height: 520px;
 
   display: flex;
+
   align-items: center;
 
   padding: 100px 0;
 
-  background-image: url("/image/banner2.png");
-
-  background-size: cover;
-
-  background-position: center;
-
   overflow: hidden;
 }
 
-/* لایه تاریک روی تصویر */
+.acceptanceImage {
+  position: absolute !important;
+
+  inset: 0;
+
+  z-index: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+
+  object-position: center;
+}
 
 .acceptanceOverlay {
   position: absolute;
 
   inset: 0;
 
+  z-index: 1;
+
   background: linear-gradient(
     90deg,
     rgba(25, 49, 33, 0.94) 0%,
-    rgba(25, 49, 33, 0.78) 25%,
-    rgba(25, 49, 33, 0.38) 40%
+    rgba(25, 49, 33, 0.78) 35%,
+    rgba(25, 49, 33, 0.35) 100%
   );
-
-  z-index: 1;
 }
-
-/* محتوا بالای Overlay */
 
 .acceptance .container {
   position: relative;
@@ -732,9 +802,9 @@
 
   font-size: clamp(2rem, 4vw, 3.3rem);
 
-  line-height: 1.4;
-
   font-weight: 800;
+
+  line-height: 1.4;
 
   letter-spacing: -0.035em;
 }
@@ -751,8 +821,6 @@
   line-height: 2;
 }
 
-/* دکمه‌ها */
-
 .acceptanceActions {
   display: flex;
 
@@ -763,60 +831,6 @@
   flex-wrap: wrap;
 
   margin-top: 30px;
-}
-
-.acceptanceActions .primaryButton {
-  background: #d6e5d1;
-
-  color: #294430;
-}
-
-.acceptanceActions .outlineButton {
-  border: 1px solid rgba(255, 255, 255, 0.38);
-
-  background: rgba(255, 255, 255, 0.06);
-
-  color: #fff;
-
-  backdrop-filter: blur(5px);
-}
-
-.acceptanceActions .primaryButton:hover,
-.acceptanceActions .outlineButton:hover {
-  transform: translateY(-2px);
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-  .acceptance {
-    min-height: 560px;
-
-    padding: 80px 0;
-
-    background-position: center;
-  }
-
-  .acceptanceContent h2 {
-    font-size: 2rem;
-  }
-
-  .acceptanceContent p {
-    font-size: 0.9rem;
-  }
-
-  .acceptanceActions {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .acceptanceActions .primaryButton,
-  .acceptanceActions .outlineButton {
-    width: 100%;
-  }
 }
 
 /* =========================================================
@@ -831,6 +845,8 @@
 
 .ctaBox {
   max-width: 850px;
+
+  margin-inline: auto;
 
   padding: 70px;
 
@@ -848,6 +864,8 @@
 
   font-size: clamp(1.9rem, 4vw, 3rem);
 
+  font-weight: 800;
+
   line-height: 1.4;
 }
 
@@ -861,24 +879,12 @@
   line-height: 2;
 }
 
-.ctaButton {
-  gap: 10px;
-
-  background: #2d4a35;
-
-  color: #fff;
-}
-
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
 @media (max-width: 1000px) {
   .facilityGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .substanceGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -899,6 +905,24 @@
   }
 }
 
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .substances {
+    padding: 80px 0;
+  }
+
+  .substanceGroups {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 700px) {
   .container,
   .heroContainer {
@@ -909,12 +933,28 @@
     min-height: 600px;
   }
 
+  .heroImage {
+    object-position: center;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(
+      90deg,
+      rgba(20, 43, 28, 0.92),
+      rgba(20, 43, 28, 0.58)
+    );
+  }
+
   .heroTitle {
     font-size: 2.4rem;
+
+    line-height: 1.35;
   }
 
   .heroDescription {
     font-size: 0.92rem;
+
+    line-height: 2;
   }
 
   .intro,
@@ -926,7 +966,6 @@
   }
 
   .facilityGrid,
-  .substanceGrid,
   .steps {
     grid-template-columns: 1fr;
   }
@@ -935,13 +974,11 @@
     min-height: auto;
   }
 
-  .ctaBox {
-    padding: 40px 22px;
-  }
-
   .heroActions,
   .acceptanceActions {
     flex-direction: column;
+
+    align-items: stretch;
   }
 
   .primaryButton,
@@ -949,5 +986,59 @@
   .outlineButton,
   .ctaButton {
     width: 100%;
+  }
+
+  .acceptance {
+    min-height: 560px;
+
+    padding: 80px 0;
+  }
+
+  .acceptanceImage {
+    object-position: center;
+  }
+
+  .acceptanceContent h2 {
+    font-size: 2rem;
+  }
+
+  .acceptanceContent p {
+    font-size: 0.9rem;
+  }
+
+  .ctaBox {
+    padding: 40px 22px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+  .substanceGroup {
+    padding: 25px;
+  }
+
+  .substanceList {
+    grid-template-columns: 1fr;
+  }
+
+  .groupHeader {
+    gap: 14px;
+  }
+
+  .groupHeader h3 {
+    font-size: 1.15rem;
+  }
+
+  .facilityCard {
+    padding: 25px;
+  }
+
+  .treatmentItem {
+    grid-template-columns: 42px 1fr;
+
+    gap: 16px;
   }
 }

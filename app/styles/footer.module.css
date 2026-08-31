@@ -17,7 +17,7 @@
 }
 
 /* ========================================
-   Background Decoration
+   BACKGROUND DECORATION
 ======================================== */
 
 .footer::before {
@@ -69,7 +69,7 @@
 
   z-index: 1;
 
-  width: min(100% - 32px, 1180px);
+  width: min(calc(100% - 32px), 1180px);
 
   margin-inline: auto;
 
@@ -98,6 +98,8 @@
 
 .logo {
   display: inline-flex;
+
+  align-items: center;
 
   margin-bottom: 12px;
 
@@ -175,17 +177,31 @@
   cursor: pointer;
 }
 
+.accordionButton:focus-visible {
+  outline: 2px solid #a9c49b;
+
+  outline-offset: 4px;
+
+  border-radius: 6px;
+}
+
 .accordionIcon {
   width: 18px;
   height: 18px;
 
+  flex-shrink: 0;
+
   color: #91ad7c;
 
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .accordionIconOpen {
   transform: rotate(180deg);
+
+  color: #b9d0ac;
 }
 
 .accordionContent {
@@ -197,7 +213,7 @@
 
   transition:
     grid-template-rows 0.3s ease,
-    opacity 0.3s ease;
+    opacity 0.25s ease;
 }
 
 .accordionContent > .linkList {
@@ -221,8 +237,9 @@
 
   gap: 10px;
 
-  padding: 0 0 16px;
   margin: 0;
+
+  padding: 0 0 16px;
 
   list-style: none;
 }
@@ -251,6 +268,14 @@
   color: #ffffff;
 
   transform: translateX(-3px);
+}
+
+.linkList a:focus-visible {
+  outline: 2px solid #a9c49b;
+
+  outline-offset: 4px;
+
+  border-radius: 4px;
 }
 
 /* ========================================
@@ -318,10 +343,10 @@
 }
 
 .contactIcon {
-  flex-shrink: 0;
-
   width: 18px;
   height: 18px;
+
+  flex-shrink: 0;
 
   margin-top: 3px;
 
@@ -340,6 +365,14 @@
 
 .contactItem a:hover {
   color: #ffffff;
+}
+
+.contactItem a:focus-visible {
+  outline: 2px solid #a9c49b;
+
+  outline-offset: 4px;
+
+  border-radius: 4px;
 }
 
 /* ========================================
@@ -406,6 +439,14 @@
   color: #ffffff;
 }
 
+.bottomLinks a:focus-visible {
+  outline: 2px solid #a9c49b;
+
+  outline-offset: 4px;
+
+  border-radius: 4px;
+}
+
 .bottomLinks span {
   color: rgba(255, 255, 255, 0.2);
 
@@ -421,7 +462,7 @@
 }
 
 /* ========================================
-   TABLET
+   TABLET / DESKTOP
 ======================================== */
 
 @media (min-width: 701px) {
@@ -454,6 +495,8 @@
     max-width: 330px;
 
     font-size: 14px;
+
+    line-height: 2.1;
   }
 
   .desktopColumn {
@@ -507,7 +550,7 @@
 }
 
 /* ========================================
-   DESKTOP
+   LARGE DESKTOP
 ======================================== */
 
 @media (min-width: 1100px) {
@@ -622,8 +665,74 @@
     transform: translateY(-4px);
   }
 
+  .backToTop:focus-visible {
+    outline: 2px solid #d6e5d1;
+
+    outline-offset: 4px;
+  }
+
   .backToTop svg {
     width: 18px;
     height: 18px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .footerContainer {
+    width: min(calc(100% - 24px), 1180px);
+
+    padding-top: 40px;
+  }
+
+  .logo img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .description {
+    font-size: 12px;
+
+    line-height: 2;
+  }
+
+  .accordionButton {
+    min-height: 52px;
+
+    font-size: 14px;
+  }
+
+  .contactColumn {
+    padding-top: 20px;
+  }
+
+  .contactItem {
+    font-size: 12px;
+  }
+
+  .copyright,
+  .bottomLinks a {
+    font-size: 9px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer *,
+  .footer *::before,
+  .footer *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
   }
 }

@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className={styles.herocontainer}>
       <Image
-        src="/image/hero-img.png"
+        src="/image/hero-img.webp"
         fill
         priority
         quality={80}

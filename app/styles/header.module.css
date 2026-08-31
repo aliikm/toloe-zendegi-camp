@@ -1,6 +1,6 @@
-/* ========================================
+/* =========================================================
    HEADER
-======================================== */
+========================================================= */
 
 .container {
   position: fixed;
@@ -8,30 +8,36 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 999;
-  width: 100%;
-  min-height: 99px;
-  display: grid;
 
-  /*
-    چپ       وسط       راست
-    actions  navbar    logo
-  */
+  z-index: 999;
+
+  width: 100%;
+  min-height: var(--header-height, 99px);
+
+  display: grid;
 
   grid-template-columns: 320px minmax(0, 1fr) 320px;
   grid-template-areas: "actions navbar logo";
+
   align-items: center;
+
   direction: ltr;
-  background: rgba(255, 255, 255, 0.8);
+
+  background: rgba(255, 255, 255, 0.86);
+
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+
+  border-bottom: 1px solid rgba(38, 55, 44, 0.08);
+
+  transition:
+    background-color var(--transition, 300ms ease),
+    box-shadow var(--transition, 300ms ease);
 }
 
-/* ========================================
-   ACTIONS
-======================================== */
+/* =========================================================
+   CONSULTATION
+========================================================= */
 
 .actions {
   grid-area: actions;
@@ -39,6 +45,7 @@
   height: 100%;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -49,99 +56,131 @@
   width: 140px;
   height: 46px;
 
-  display: flex;
+  display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   padding: 0;
 
-  box-sizing: border-box;
-
-  border: 1px solid #31553b;
+  border: 1px solid var(--primary, #2f5d3b);
   border-radius: 12px;
 
-  background: #31553b;
-  color: #ffffff;
+  background: var(--primary, #2f5d3b);
+  color: var(--white, #ffffff);
 
   font-family: inherit;
+
   font-size: 14px;
   font-weight: 600;
 
   line-height: 1.5;
+
   text-align: center;
   white-space: nowrap;
 
-  direction: rtl;
-
   text-decoration: none;
 
-  cursor: pointer;
+  direction: rtl;
 
   transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background-color var(--transition-fast, 180ms ease),
+    border-color var(--transition-fast, 180ms ease),
+    transform var(--transition-fast, 180ms ease),
+    box-shadow var(--transition-fast, 180ms ease);
 }
 
 .consultationButton:hover {
-  background: #26452f;
-  border-color: #26452f;
+  background: var(--primary-dark, #26372c);
+  border-color: var(--primary-dark, #26372c);
 
   transform: translateY(-2px);
 
-  box-shadow: 0 10px 24px rgba(49, 85, 59, 0.18);
+  box-shadow: var(--shadow-md, 0 10px 30px rgba(0, 0, 0, 0.08));
 }
 
-/* ========================================
+.consultationButton:focus-visible {
+  outline: 3px solid rgba(47, 93, 59, 0.25);
+  outline-offset: 3px;
+}
+
+/* =========================================================
    DESKTOP NAVBAR
-======================================== */
+========================================================= */
 
 .navbar {
   grid-area: navbar;
 
   width: 100%;
-
   min-width: 0;
 
   display: flex;
-  gap: 30px;
+
   align-items: center;
   justify-content: center;
 }
 
 .navbarcontainer {
   width: 100%;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  direction: rtl;
 }
 
-.navbarcontainer > .navbar {
+.navbarcontainer .navbar {
   width: max-content;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  direction: rtl;
 }
 
 .navbar a {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
+
   color: #374151;
+
   font-size: 16px;
   font-weight: 500;
+
   line-height: 1.5;
+
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.3s ease;
+
+  transition:
+    color var(--transition-fast, 180ms ease),
+    transform var(--transition-fast, 180ms ease);
 }
 
 .navbar a:hover {
-  color: #90c89f;
+  color: var(--primary-light, #527258);
 }
 
-/* ========================================
+.navbar a:focus-visible {
+  outline: 2px solid rgba(47, 93, 59, 0.3);
+  outline-offset: 5px;
+
+  border-radius: 4px;
+}
+
+/* =========================================================
    LOGO
-======================================== */
+========================================================= */
 
 .logo {
   grid-area: logo;
@@ -156,26 +195,46 @@
   direction: rtl;
 }
 
+.logo a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  line-height: 0;
+}
+
 .logo img {
   width: 100px;
   height: 100px;
 
+  display: block;
+
   object-fit: contain;
 }
 
-/* ========================================
-   MOBILE MENU BUTTON
-   مهم: دسکتاپ مخفی
-======================================== */
+/* =========================================================
+   MOBILE MENU WRAPPER
+   DESKTOP = HIDDEN
+========================================================= */
+
+.mobileMenuWrapper {
+  display: none;
+}
+
+/* =========================================================
+   HAMBURGER
+   DESKTOP = HIDDEN
+========================================================= */
 
 .menuButton {
   display: none;
 }
 
-/* ========================================
+/* =========================================================
    MOBILE MENU
-   مهم: دسکتاپ مخفی
-======================================== */
+   DESKTOP = HIDDEN
+========================================================= */
 
 .mobileMenu {
   display: none;
@@ -185,9 +244,9 @@
   display: none;
 }
 
-/* ========================================
+/* =========================================================
    TABLET
-======================================== */
+========================================================= */
 
 @media (max-width: 1100px) {
   .container {
@@ -197,7 +256,7 @@
       220px;
   }
 
-  .navbar {
+  .navbarcontainer .navbar {
     gap: 18px;
   }
 
@@ -205,11 +264,11 @@
     font-size: 14px;
   }
 
-  .actions button {
+  .consultationButton {
     width: 130px;
-    height: 46px;
+    height: 44px;
 
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .logo img {
@@ -218,26 +277,23 @@
   }
 }
 
-/* ========================================
+/* =========================================================
    MOBILE
-======================================== */
-
-/* ========================================
-   MOBILE
-   فقط موبایل
-======================================== */
+========================================================= */
 
 @media (max-width: 768px) {
   .container {
-    min-height: 72px;
+    min-height: var(--header-height-mobile, 72px);
 
     padding: 0 14px;
 
     display: grid;
 
     /*
-      چپ          وسط       راست
-      actions     logo      menu
+      چپ              وسط              راست
+
+      مشاوره          لوگو             همبرگری
+      actions         logo             mobile
     */
 
     grid-template-columns: 1fr auto 1fr;
@@ -247,48 +303,40 @@
     align-items: center;
 
     direction: ltr;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
-  /* ======================================
-     ACTIONS
-     سمت چپ
-  ====================================== */
+  /* =======================================================
+     CONSULTATION — LEFT
+  ======================================================= */
 
   .actions {
     grid-area: actions;
 
     justify-self: start;
 
+    width: auto;
+    height: auto;
+
     display: flex;
 
     align-items: center;
-
     justify-content: flex-start;
 
     direction: rtl;
   }
 
-  .actions button {
+  .consultationButton {
     width: 112px;
     height: 40px;
 
-    margin: 0;
-    padding: 0;
+    padding: 0 8px;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background-color: rgb(4, 121, 59);
-
-    color: #ffffff;
-
-    font-family: inherit;
+    border-radius: 9px;
 
     font-size: 11px;
     font-weight: 600;
@@ -296,19 +344,19 @@
     line-height: 1;
 
     white-space: nowrap;
-
-    cursor: pointer;
   }
 
-  /* ======================================
-     LOGO
-     وسط
-  ====================================== */
+  /* =======================================================
+     LOGO — CENTER
+  ======================================================= */
 
   .logo {
     grid-area: logo;
 
     justify-self: center;
+
+    width: auto;
+    height: auto;
 
     display: flex;
 
@@ -325,15 +373,24 @@
     object-fit: contain;
   }
 
-  /* ======================================
-     MOBILE MENU WRAPPER
-     سمت راست
-  ====================================== */
+  /* =======================================================
+     DESKTOP NAVBAR — OFF
+  ======================================================= */
+
+  .navbar {
+    display: none;
+  }
+
+  /* =======================================================
+     MOBILE MENU WRAPPER — RIGHT
+  ======================================================= */
 
   .mobileMenuWrapper {
     grid-area: mobile;
 
     justify-self: end;
+
+    width: auto;
 
     display: flex;
 
@@ -341,9 +398,9 @@
     justify-content: flex-end;
   }
 
-  /* ======================================
-     HAMBURGER
-  ====================================== */
+  /* =======================================================
+     HAMBURGER — RIGHT
+  ======================================================= */
 
   .menuButton {
     width: 42px;
@@ -358,15 +415,19 @@
 
     gap: 5px;
 
+    margin: 0;
     padding: 0;
 
-    border: none;
-
+    border: 0;
     border-radius: 10px;
 
     background: transparent;
 
     cursor: pointer;
+
+    direction: ltr;
+
+    -webkit-tap-highlight-color: transparent;
   }
 
   .menuButton span {
@@ -375,24 +436,27 @@
     width: 23px;
     height: 2px;
 
-    border-radius: 999px;
+    border-radius: var(--radius-full, 999px);
 
-    background: #2f4634;
+    background: var(--primary-dark, #26372c);
 
-    transition: 0.3s ease;
+    transition:
+      transform var(--transition-fast, 180ms ease),
+      opacity var(--transition-fast, 180ms ease);
   }
 
-  /* ======================================
-     DESKTOP NAVBAR OFF
-  ====================================== */
-
-  .navbar {
-    display: none;
+  .menuButton:hover {
+    background: rgba(47, 93, 59, 0.06);
   }
 
-  /* ======================================
+  .menuButton:focus-visible {
+    outline: 3px solid rgba(47, 93, 59, 0.2);
+    outline-offset: 2px;
+  }
+
+  /* =======================================================
      MOBILE MENU
-  ====================================== */
+  ======================================================= */
 
   .mobileMenu {
     position: fixed;
@@ -403,7 +467,9 @@
     z-index: 1001;
 
     width: min(82%, 340px);
+
     height: 100vh;
+    height: 100dvh;
 
     display: flex;
 
@@ -411,7 +477,7 @@
 
     padding: 24px;
 
-    background: #ffffff;
+    background: var(--white, #ffffff);
 
     box-shadow: -10px 0 40px rgba(0, 0, 0, 0.12);
 
@@ -419,16 +485,26 @@
 
     transform: translateX(100%);
 
-    transition: transform 0.35s ease;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+      transform 350ms ease,
+      visibility 350ms ease;
   }
 
   .mobileMenuOpen {
     transform: translateX(0);
+
+    visibility: visible;
+
+    pointer-events: auto;
   }
 
-  /* ======================================
+  /* =======================================================
      MOBILE MENU HEADER
-  ====================================== */
+  ======================================================= */
 
   .mobileMenuHeader {
     display: flex;
@@ -438,20 +514,21 @@
 
     padding-bottom: 20px;
 
-    border-bottom: 1px solid #edf0ec;
+    border-bottom: 1px solid var(--border-light, #edf0eb);
   }
 
   .mobileMenuTitle {
-    color: #2f4634;
+    color: var(--primary-dark, #26372c);
 
     font-size: 18px;
-
     font-weight: 700;
+
+    line-height: 1.5;
   }
 
-  /* ======================================
+  /* =======================================================
      CLOSE BUTTON
-  ====================================== */
+  ======================================================= */
 
   .closeButton {
     width: 38px;
@@ -462,26 +539,42 @@
     align-items: center;
     justify-content: center;
 
+    margin: 0;
     padding: 0;
 
     border: none;
-
     border-radius: 50%;
 
     background: #f3f6f0;
 
-    color: #2f4634;
+    color: var(--primary-dark, #26372c);
 
+    font-family: Arial, sans-serif;
     font-size: 28px;
 
     line-height: 1;
 
     cursor: pointer;
+
+    transition:
+      background-color var(--transition-fast, 180ms ease),
+      transform var(--transition-fast, 180ms ease);
   }
 
-  /* ======================================
-     MOBILE NAV
-  ====================================== */
+  .closeButton:hover {
+    background: #e8efe4;
+
+    transform: rotate(4deg);
+  }
+
+  .closeButton:focus-visible {
+    outline: 3px solid rgba(47, 93, 59, 0.2);
+    outline-offset: 2px;
+  }
+
+  /* =======================================================
+     MOBILE NAVIGATION
+  ======================================================= */
 
   .mobileNav {
     display: flex;
@@ -507,25 +600,74 @@
     color: #374151;
 
     font-size: 15px;
-
     font-weight: 500;
+
+    line-height: 1.5;
 
     text-decoration: none;
 
     transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
+      background-color var(--transition-fast, 180ms ease),
+      color var(--transition-fast, 180ms ease);
   }
 
   .mobileNav a:hover {
     background: #f3f6f0;
 
-    color: #2f5d3b;
+    color: var(--primary, #2f5d3b);
   }
 
-  /* ======================================
+  .mobileNav a:focus-visible {
+    outline: 2px solid rgba(47, 93, 59, 0.2);
+    outline-offset: 2px;
+  }
+
+  /* =======================================================
+     MOBILE MENU FOOTER / CTA
+  ======================================================= */
+
+  .mobileMenuFooter {
+    margin-top: auto;
+
+    padding-top: 24px;
+
+    border-top: 1px solid var(--border-light, #edf0eb);
+  }
+
+  .mobileConsultationButton {
+    width: 100%;
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary, #2f5d3b);
+
+    color: var(--white, #ffffff);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+      background-color var(--transition-fast, 180ms ease),
+      transform var(--transition-fast, 180ms ease);
+  }
+
+  .mobileConsultationButton:hover {
+    background: var(--primary-dark, #26372c);
+
+    transform: translateY(-1px);
+  }
+
+  /* =======================================================
      OVERLAY
-  ====================================== */
+  ======================================================= */
 
   .mobileOverlay {
     position: fixed;
@@ -539,12 +681,13 @@
     background: rgba(0, 0, 0, 0.35);
 
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
 }
 
-/* ========================================
+/* =========================================================
    SMALL MOBILE
-======================================== */
+========================================================= */
 
 @media (max-width: 480px) {
   .container {
@@ -553,9 +696,11 @@
     padding: 0 12px;
   }
 
-  .actions button {
+  .consultationButton {
     width: 105px;
     height: 38px;
+
+    padding-inline: 6px;
 
     font-size: 10px;
   }
@@ -578,5 +723,22 @@
     width: 85%;
 
     padding: 20px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .consultationButton,
+  .navbar a,
+  .menuButton span,
+  .mobileMenu,
+  .closeButton,
+  .mobileNav a,
+  .mobileConsultationButton {
+    transition: none;
   }
 }

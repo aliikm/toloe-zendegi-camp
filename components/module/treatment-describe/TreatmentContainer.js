@@ -1,12 +1,7 @@
 import styles from "@/app/styles/treatment.module.css";
-
-import { LuShieldCheck } from "react-icons/lu";
-import { LuStethoscope } from "react-icons/lu";
+import { LuShieldCheck, LuStethoscope, LuHeartHandshake } from "react-icons/lu";
+import { PiPlantLight, PiGenderIntersexLight } from "react-icons/pi";
 import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
-import { LuHeartHandshake } from "react-icons/lu";
-import { PiPlantLight } from "react-icons/pi";
-import { PiGenderIntersexLight } from "react-icons/pi";
-
 const highlights = [
   {
     icon: LuShieldCheck,

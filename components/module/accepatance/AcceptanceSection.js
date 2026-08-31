@@ -7,10 +7,7 @@ import styles from "@/app/styles/acceptancedection.module.css";
 
 export default function AcceptanceSection() {
   return (
-    <section
-      className={`${styles.section} container`}
-      aria-labelledby="acceptance-title"
-    >
+    <section className={styles.section} aria-labelledby="acceptance-title">
       <div className={styles.container}>
         <div className={styles.content}>
           {/* =========================
@@ -69,7 +66,7 @@ export default function AcceptanceSection() {
               const Icon = item.icon;
 
               return (
-                <article className={styles.card} key={item.id}>
+                <article key={item.id} className={styles.card}>
                   <div className={styles.iconWrapper} aria-hidden="true">
                     <Icon />
                   </div>

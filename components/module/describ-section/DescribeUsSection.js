@@ -7,7 +7,10 @@ import styles from "@/app/styles/describeussection.module.css";
 
 export default function DescribeUsSection() {
   return (
-    <section className={styles.section} aria-labelledby="camp-details-title">
+    <section
+      className={styles.section}
+      aria-labelledby="about-toloo-zendegi-title"
+    >
       <div className={styles.container}>
         <div className={styles.content}>
           {/* =========================
@@ -16,8 +19,8 @@ export default function DescribeUsSection() {
 
           <div className={styles.imageWrapper}>
             <Image
-              src="/image/usdescribe.png"
-              alt="محیط طبیعی و آرام مجموعه طلوع زندگی"
+              src="/image/usdescribe.webp"
+              alt="محیط آرام و طبیعی مرکز طلوع زندگی"
               width={900}
               height={650}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -32,7 +35,7 @@ export default function DescribeUsSection() {
           <div className={styles.textContent}>
             <span className={styles.eyebrow}>درباره طلوع زندگی</span>
 
-            <h2 id="camp-details-title" className={styles.title}>
+            <h2 id="about-toloo-zendegi-title" className={styles.title}>
               همراه شما برای
               <br />
               شروع یک زندگی جدید
@@ -50,7 +53,10 @@ export default function DescribeUsSection() {
                 Features
             ========================== */}
 
-            <ul className={styles.features} aria-label="ویژگی‌های مجموعه">
+            <ul
+              className={styles.features}
+              aria-label="ویژگی‌های مرکز طلوع زندگی"
+            >
               <li className={styles.feature}>
                 <span className={styles.checkIcon} aria-hidden="true">
                   <LuCheck />
@@ -80,7 +86,11 @@ export default function DescribeUsSection() {
                 CTA
             ========================== */}
 
-            <Link href="/aboutus" className={styles.button}>
+            <Link
+              href="/aboutus"
+              className={styles.button}
+              aria-label="مطالعه بیشتر درباره طلوع زندگی"
+            >
               <span>بیشتر درباره ما</span>
 
               <LuArrowLeft aria-hidden="true" />

@@ -1,49 +1,56 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import { LuMapPin, LuPhone, LuMail, LuClock3, LuArrowUp } from "react-icons/lu";
+
 import SocialMedia from "@/components/social/SocialMedia";
 import FooterAccordion from "@/components/module/footer/FooterAccording";
+
 import { footerServices, footerLinks } from "@/data/footerservices";
+
 import styles from "@/app/styles/footer.module.css";
-import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        {/* =========================
-            Main
-        ========================== */}
+        {/* ========================================
+            MAIN FOOTER
+        ======================================== */}
 
         <div className={styles.footerGrid}>
-          {/* Brand */}
+          {/* ========================================
+              BRAND
+          ======================================== */}
 
           <div className={styles.brandColumn}>
             <Link
               href="/"
               className={styles.logo}
-              aria-label="طلوع زندگی - صفحه اصلی"
+              aria-label="صفحه اصلی طلوع زندگی"
             >
               <Image
-                src="/image/logo.png"
-                width={100}
-                height={100}
-                alt="طلوع زندگی"
+                src="/image/logo.webp"
+                width={82}
+                height={82}
+                alt="لوگوی طلوع زندگی"
               />
             </Link>
 
             <p className={styles.description}>
-              کمپ تخصصی ترک اعتیاد طلوع زندگی با بهره‌گیری از تیمی متخصص و محیطی
-              آرام، در مسیر درمان و بازگشت به یک زندگی سالم همراه شماست.
+              طلوع زندگی؛ مرکز درمان و بازتوانی با رویکردی علمی، انسانی و
+              حرفه‌ای که در محیطی آرام، همراه مسیر بهبودی و بازگشت به زندگی سالم
+              است.
             </p>
 
             <SocialMedia />
           </div>
 
-          {/* =========================
-              Services
-          ========================== */}
+          {/* ========================================
+              SERVICES
+          ======================================== */}
 
-          <nav className={styles.column} aria-label="خدمات">
+          <nav className={styles.column} aria-label="خدمات طلوع زندگی">
             {/* Desktop */}
 
             <div className={styles.desktopColumn}>
@@ -65,9 +72,9 @@ export default function Footer() {
             </div>
           </nav>
 
-          {/* =========================
-              Quick Links
-          ========================== */}
+          {/* ========================================
+              QUICK LINKS
+          ======================================== */}
 
           <nav className={styles.column} aria-label="دسترسی سریع">
             {/* Desktop */}
@@ -91,12 +98,14 @@ export default function Footer() {
             </div>
           </nav>
 
-          {/* =========================
-              Contact
-          ========================== */}
+          {/* ========================================
+              CONTACT
+          ======================================== */}
 
           <address className={styles.contactColumn}>
             <h2 className={styles.columnTitle}>ارتباط با ما</h2>
+
+            {/* Address */}
 
             <div className={styles.contactItem}>
               <LuMapPin className={styles.contactIcon} aria-hidden="true" />
@@ -110,17 +119,23 @@ export default function Footer() {
               </a>
             </div>
 
+            {/* Phone */}
+
             <div className={styles.contactItem}>
               <LuPhone className={styles.contactIcon} aria-hidden="true" />
 
-              <a href="tel:+9809122268806">09122268806</a>
+              <a href="tel:+989122268806">۰۹۱۲۲۲۶۸۸۰۶</a>
             </div>
+
+            {/* Email */}
 
             <div className={styles.contactItem}>
               <LuMail className={styles.contactIcon} aria-hidden="true" />
 
-              <a href="mailto:info@example.com">info@toloozendegi.com</a>
+              <a href="mailto:info@toloozendegi.com">info@toloozendegi.com</a>
             </div>
+
+            {/* Working Hours */}
 
             <div className={styles.contactItem}>
               <LuClock3 className={styles.contactIcon} aria-hidden="true" />
@@ -130,15 +145,15 @@ export default function Footer() {
           </address>
         </div>
 
-        {/* =========================
-            Divider
-        ========================== */}
+        {/* ========================================
+            DIVIDER
+        ======================================== */}
 
         <div className={styles.divider} />
 
-        {/* =========================
-            Bottom
-        ========================== */}
+        {/* ========================================
+            FOOTER BOTTOM
+        ======================================== */}
 
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
@@ -154,10 +169,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Back To Top */}
+        {/* ========================================
+            BACK TO TOP
+        ======================================== */}
 
         <a
-          href="#"
+          href="#top"
           className={styles.backToTop}
           aria-label="بازگشت به بالای صفحه"
         >
