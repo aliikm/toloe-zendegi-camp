@@ -56,10 +56,10 @@
   position: absolute;
 
   left: 50%;
-  bottom: -22px;
+  bottom: 0px;
 
   transform: translateX(-50%);
-
+  z-index: 999;
   width: 54px;
   height: 54px;
 
@@ -81,7 +81,6 @@
 .icon {
   width: 26px;
   height: 26px;
-
   color: #5d7a5a;
 
   stroke-width: 1.8;

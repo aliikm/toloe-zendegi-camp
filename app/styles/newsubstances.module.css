@@ -1,0 +1,488 @@
+/* ========================================
+   SECTION
+======================================== */
+
+.section {
+  width: 100%;
+
+  direction: rtl;
+
+  background: #f7f9f5;
+
+  border-top: 1px solid #edf1ec;
+  border-bottom: 1px solid #edf1ec;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+  width: 100%;
+
+  max-width: 1280px;
+
+  margin-inline: auto;
+
+  padding: 72px 20px;
+}
+
+/* ========================================
+   HEADING
+======================================== */
+
+.heading {
+  max-width: 760px;
+
+  margin: 0 auto 48px;
+
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #49684d;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.8;
+}
+
+.title {
+  margin: 0 0 18px;
+
+  color: #24352a;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  line-height: 1.55;
+}
+
+.description {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #657168;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 2.1;
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 14px;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.card {
+  min-height: 220px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #e5ebe4;
+
+  border-radius: 18px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  border-color: #cbd9c9;
+
+  box-shadow: 0 12px 30px rgba(47, 93, 59, 0.07);
+}
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.cardTop {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: #eef4ec;
+
+  color: #49684d;
+}
+
+.icon {
+  width: 23px;
+  height: 23px;
+
+  stroke-width: 1.7;
+}
+
+/* ========================================
+   CATEGORY
+======================================== */
+
+.category {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 28px;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: #f4f7f3;
+
+  color: #6b786e;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.cardContent {
+  flex: 1;
+}
+
+.cardContent h3 {
+  margin: 0 0 3px;
+
+  color: #26372c;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.7;
+}
+
+.englishName {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #8a948d;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  direction: ltr;
+
+  text-align: right;
+
+  line-height: 1.5;
+}
+
+.cardContent p {
+  margin: 0;
+
+  color: #69746c;
+
+  font-size: 13px;
+
+  line-height: 2;
+}
+
+/* ========================================
+   BOTTOM CTA
+======================================== */
+
+.bottom {
+  margin-top: 42px;
+
+  padding: 26px 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 28px;
+
+  background: #2f5d3b;
+
+  border-radius: 20px;
+
+  color: #ffffff;
+}
+
+.bottomText {
+  flex: 1;
+}
+
+.bottomText h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.7;
+}
+
+.bottomText p {
+  margin: 0;
+
+  color: #d9e4da;
+
+  font-size: 13px;
+
+  line-height: 2;
+}
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.button {
+  min-width: 150px;
+  height: 46px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #ffffff;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #2f5d3b;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+
+  background: #eaf2e9;
+
+  border-color: #eaf2e9;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (min-width: 600px) {
+  .container {
+    padding: 80px 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+  }
+
+  .card {
+    min-height: 225px;
+  }
+}
+
+/* ========================================
+   DESKTOP
+======================================== */
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 92px 32px;
+  }
+
+  .heading {
+    margin-bottom: 54px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+  }
+
+  .card {
+    min-height: 230px;
+
+    padding: 26px;
+  }
+
+  .cardContent h3 {
+    font-size: 18px;
+  }
+
+  .cardContent p {
+    font-size: 13px;
+  }
+
+  .bottom {
+    margin-top: 48px;
+
+    padding: 30px 34px;
+  }
+
+  .bottomText h3 {
+    font-size: 19px;
+  }
+
+  .bottomText p {
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP
+======================================== */
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 16px;
+  }
+
+  .card {
+    min-height: 255px;
+
+    padding: 24px 18px;
+  }
+
+  .cardTop {
+    margin-bottom: 18px;
+  }
+
+  .iconWrapper {
+    width: 44px;
+    height: 44px;
+  }
+
+  .icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .category {
+    font-size: 9px;
+  }
+
+  .cardContent h3 {
+    font-size: 16px;
+  }
+
+  .cardContent p {
+    font-size: 12px;
+
+    line-height: 2.05;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 599px) {
+  .bottom {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    text-align: center;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

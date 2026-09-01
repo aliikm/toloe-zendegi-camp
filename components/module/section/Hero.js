@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div className={styles.paragraphcontainer}>
         <div className={styles.content}>
-          <span className={styles.badge}>مرکز تخصصی درمان و بازتوانی</span>
+          <span className={styles.badge}>مرکز تخصصی درمان وترک اعتیاد</span>
 
           <h1>
             به شروعی دوباره

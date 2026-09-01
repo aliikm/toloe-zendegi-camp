@@ -29,7 +29,7 @@ export const services = [
     title: "حمایت و مشاوره خانواده",
     description:
       "آموزش و همراهی خانواده برای شناخت بهتر فرایند درمان و حمایت مؤثر از فرد در مسیر بهبودی.",
-    image: "/image/family-support.jpg",
+    image: "/image/individual-therapy.jpg",
     icon: LuHeartHandshake,
   },
 
