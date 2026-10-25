@@ -19,64 +19,205 @@ import {
 import styles from "../styles/paziresh.module.css";
 
 export const metadata = {
-  title: "پذیرش آقایان و بانوان از سراسر کشور | طلوع زندگی",
+  title: "شرایط پذیرش کمپ ترک اعتیاد | پذیرش آقایان و بانوان | طلوع زندگی",
 
   description:
-    "شرایط پذیرش کمپ طلوع زندگی برای آقایان و بانوان از سراسر کشور. دریافت اطلاعات، مشاوره پیش از پذیرش و هماهنگی مراحل پذیرش.",
+    "شرایط پذیرش کمپ ترک اعتیاد طلوع زندگی برای آقایان و بانوان از سراسر کشور. بررسی شرایط، دریافت مشاوره اولیه و هماهنگی مراحل پذیرش و اقامت.",
 
   keywords: [
+    "شرایط پذیرش کمپ ترک اعتیاد",
     "پذیرش کمپ ترک اعتیاد",
     "پذیرش بانوان",
     "پذیرش آقایان",
     "پذیرش از سراسر کشور",
-    "شرایط پذیرش کمپ",
+    "کمپ ترک اعتیاد تهران",
+    "کمپ ترک اعتیاد استان تهران",
     "کمپ طلوع زندگی",
+    "کمپ رایگان",
+    "کمپ ترک اعتیاد رایگان",
+    "کمپ رایگان ترک اعتیاد",
+    "مرکز ترک اعتیاد رایگان",
+    "مشاوره رایگان ترک اعتیاد",
   ],
 
   alternates: {
-    canonical: "/paziresh",
+    canonical: "/acceptance",
   },
 
   openGraph: {
-    title: "پذیرش آقایان و بانوان از سراسر کشور | طلوع زندگی",
+    title: "شرایط پذیرش کمپ ترک اعتیاد | طلوع زندگی",
 
     description:
-      "اطلاعات شرایط پذیرش آقایان و بانوان و نحوه هماهنگی پذیرش از سراسر کشور.",
+      "اطلاعات شرایط پذیرش آقایان و بانوان، مراحل پذیرش و نحوه هماهنگی از سراسر کشور در کمپ ترک اعتیاد طلوع زندگی.",
 
-    url: "/paziresh",
+    url: "https://toloozendegi.ir/acceptance",
 
     type: "website",
 
     locale: "fa_IR",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-export default function PazireshPage() {
+// =====================================================
+// WEBPAGE SCHEMA
+// =====================================================
+
+const structuredData = {
+  "@context": "https://schema.org",
+
+  "@type": "WebPage",
+
+  "@id": "https://toloozendegi.ir/acceptance/#webpage",
+
+  url: "https://toloozendegi.ir/acceptance",
+
+  name: "شرایط پذیرش کمپ ترک اعتیاد | پذیرش آقایان و بانوان | طلوع زندگی",
+
+  description:
+    "شرایط پذیرش کمپ ترک اعتیاد طلوع زندگی برای آقایان و بانوان از سراسر کشور، مراحل پذیرش و نحوه هماهنگی.",
+
+  isPartOf: {
+    "@type": "WebSite",
+
+    "@id": "https://toloozendegi.ir/#website",
+
+    url: "https://toloozendegi.ir/",
+
+    name: "طلوع زندگی",
+  },
+
+  about: {
+    "@type": "Organization",
+
+    "@id": "https://toloozendegi.ir/#organization",
+  },
+
+  inLanguage: "fa-IR",
+};
+
+// =====================================================
+// BREADCRUMB SCHEMA
+// =====================================================
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+
+  "@type": "BreadcrumbList",
+
+  "@id": "https://toloozendegi.ir/acceptance/#breadcrumb",
+
+  itemListElement: [
+    {
+      "@type": "ListItem",
+
+      position: 1,
+
+      name: "خانه",
+
+      item: "https://toloozendegi.ir/",
+    },
+
+    {
+      "@type": "ListItem",
+
+      position: 2,
+
+      name: "شرایط پذیرش",
+
+      item: "https://toloozendegi.ir/acceptance",
+    },
+  ],
+};
+
+// =====================================================
+// FAQ SCHEMA
+// =====================================================
+
+const faqSchema = {
+  "@context": "https://schema.org",
+
+  "@type": "FAQPage",
+
+  "@id": "https://toloozendegi.ir/acceptance/#faq",
+
+  mainEntity: acceptanceFaqs.map((faq) => ({
+    "@type": "Question",
+
+    name: faq.question,
+
+    acceptedAnswer: {
+      "@type": "Answer",
+
+      text: faq.answer,
+    },
+  })),
+};
+
+// =====================================================
+// PAGE
+// =====================================================
+
+export default function AcceptancePage() {
   return (
     <main className={styles.page}>
+      {/* ==================================================
+          STRUCTURED DATA
+      ================================================== */}
+
+      {/* WebPage Schema */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
+      {/* FAQ Schema */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+
       {/* ==================================================
           HERO
       ================================================== */}
 
-      <section className={styles.hero} aria-labelledby="paziresh-title">
+      <section className={styles.hero} aria-labelledby="acceptance-title">
         <div className={styles.container}>
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>شرایط پذیرش</span>
 
-            <h1 id="paziresh-title">
-              پذیرش آقایان و بانوان
+            <h1 id="acceptance-title">
+              پذیرش کمپ ترک اعتیاد
               <br />
-              از سراسر کشور
+              برای آقایان و بانوان
             </h1>
 
             <p className={styles.heroDescription}>
-              مجموعه طلوع زندگی آماده بررسی شرایط و هماهنگی پذیرش مراجعین آقا و
+              مجموعه طلوع زندگی آماده بررسی شرایط و هماهنگی پذیرش مراجعان آقا و
               خانم از شهرهای مختلف کشور است. برای دریافت اطلاعات اولیه درباره
-              شرایط پذیرش و مراحل هماهنگی، می‌توانید با مجموعه در ارتباط باشید.
+              شرایط پذیرش، روند درمان و مراحل هماهنگی می‌توانید با مجموعه در
+              ارتباط باشید.
             </p>
 
             <div className={styles.heroActions}>
-              {/* شماره واقعی مجموعه را اینجا قرار بده */}
               <a
                 href="tel:09122268806"
                 className={styles.primaryButton}
@@ -84,7 +225,7 @@ export default function PazireshPage() {
               >
                 <LuPhone aria-hidden="true" />
 
-                <span>تماس برای مشاوره</span>
+                <span>مشاوره رایگان</span>
               </a>
 
               <Link href="/" className={styles.secondaryButton}>
@@ -109,14 +250,14 @@ export default function PazireshPage() {
               <h2 id="intro-title">شروع مسیر با آگاهی و هماهنگی</h2>
 
               <p>
-                تصمیم برای شروع روند درمان، برای فرد و خانواده اهمیت زیادی دارد.
-                به همین دلیل توصیه می‌شود پیش از پذیرش، اطلاعات لازم درباره
-                شرایط و مراحل مربوط به پذیرش دریافت شود.
+                تصمیم برای شروع روند درمان اعتیاد، برای فرد و خانواده اهمیت
+                زیادی دارد. به همین دلیل توصیه می‌شود پیش از پذیرش، اطلاعات لازم
+                درباره شرایط، خدمات و مراحل مربوط به پذیرش دریافت شود.
               </p>
 
               <p>
                 تیم مجموعه طلوع زندگی آماده پاسخگویی به پرسش‌های اولیه و هماهنگی
-                مراحل پذیرش برای مراجعین از سراسر کشور است.
+                مراحل پذیرش برای مراجعان از شهرها و استان‌های مختلف کشور است.
               </p>
             </div>
 
@@ -129,8 +270,8 @@ export default function PazireshPage() {
 
               <p>
                 اگر در تهران یا یکی از شهرهای دیگر کشور زندگی می‌کنید، برای
-                دریافت اطلاعات و هماهنگی پذیرش می‌توانید با مجموعه در ارتباط
-                باشید.
+                دریافت اطلاعات درباره شرایط پذیرش و هماهنگی مراحل درمان
+                می‌توانید با مجموعه در ارتباط باشید.
               </p>
             </div>
           </div>
@@ -177,7 +318,7 @@ export default function PazireshPage() {
       <section className={styles.genderSection} aria-labelledby="gender-title">
         <div className={styles.container}>
           <div className={styles.sectionHeadingCenter}>
-            <span className={styles.sectionEyebrow}>پذیرش مراجعین</span>
+            <span className={styles.sectionEyebrow}>پذیرش مراجعان</span>
 
             <h2 id="gender-title">پذیرش آقایان و بانوان</h2>
 
@@ -196,7 +337,7 @@ export default function PazireshPage() {
               <h3>پذیرش آقایان</h3>
 
               <p>
-                آقایان می‌توانند برای دریافت اطلاعات درباره شرایط پذیرش و
+                آقایان می‌توانند برای دریافت اطلاعات درباره شرایط پذیرش، خدمات و
                 هماهنگی مراحل مربوطه با مجموعه تماس بگیرند.
               </p>
             </article>
@@ -227,6 +368,11 @@ export default function PazireshPage() {
             <span className={styles.sectionEyebrow}>روند پذیرش</span>
 
             <h2 id="steps-title">مراحل پذیرش چگونه انجام می‌شود؟</h2>
+
+            <p>
+              آشنایی با مراحل پذیرش کمک می‌کند فرد و خانواده با اطلاعات روشن‌تری
+              برای شروع مسیر درمان تصمیم بگیرند.
+            </p>
           </div>
 
           <div className={styles.stepsGrid}>
@@ -264,12 +410,16 @@ export default function PazireshPage() {
               </h2>
 
               <p>
-                مراجعین شهرهای مختلف کشور می‌توانند برای دریافت اطلاعات اولیه
+                مراجعان شهرهای مختلف کشور می‌توانند برای دریافت اطلاعات اولیه
                 درباره شرایط پذیرش و هماهنگی مراحل بعدی با مجموعه تماس بگیرند.
               </p>
             </div>
 
-            <a href="tel:09122268806" className={styles.nationalButton}>
+            <a
+              href="tel:09122268806"
+              className={styles.nationalButton}
+              aria-label="تماس با طلوع زندگی"
+            >
               تماس با ما
               <LuPhone aria-hidden="true" />
             </a>
@@ -286,7 +436,7 @@ export default function PazireshPage() {
           <div className={styles.sectionHeadingCenter}>
             <span className={styles.sectionEyebrow}>پرسش‌های متداول</span>
 
-            <h2 id="faq-title">سوالات مربوط به پذیرش</h2>
+            <h2 id="faq-title">سوالات مربوط به پذیرش کمپ ترک اعتیاد</h2>
           </div>
 
           <div className={styles.faqList}>
@@ -321,13 +471,17 @@ export default function PazireshPage() {
             <h2 id="final-cta-title">قبل از پذیرش، سوالات خود را بپرسید</h2>
 
             <p>
-              برای دریافت اطلاعات اولیه درباره شرایط پذیرش آقایان و بانوان و
-              هماهنگی مراحل مربوطه با مجموعه تماس بگیرید.
+              برای دریافت اطلاعات اولیه درباره شرایط پذیرش آقایان و بانوان،
+              هزینه‌ها، خدمات و هماهنگی مراحل مربوطه با مجموعه تماس بگیرید.
             </p>
 
-            <a href="tel:09122268806" className={styles.finalButton}>
+            <a
+              href="tel:09122268806"
+              className={styles.finalButton}
+              aria-label="تماس با طلوع زندگی برای دریافت مشاوره"
+            >
               <LuPhone aria-hidden="true" />
-              تماس با طلوع زندگی
+              مشاوره رایگان
               <LuArrowLeft aria-hidden="true" />
             </a>
           </div>

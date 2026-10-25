@@ -7,10 +7,6 @@ import "./globals.css";
 import Header from "@/components/module/header/Header";
 import Footer from "@/components/module/footer/Footer";
 
-// =====================================================
-// GLOBAL SEO
-// =====================================================
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://toloozendegi.ir"),
 
@@ -29,23 +25,18 @@ export const metadata: Metadata = {
     "بازتوانی اعتیاد",
     "درمان وابستگی به مواد",
     "کمپ ترک اعتیاد",
+    "کمپ ترک اعتیاد تهران",
+    "کمپ ترک اعتیاد استان تهران",
     "مشاوره ترک اعتیاد",
   ],
 
-  authors: [
-    {
-      name: "طلوع زندگی",
-    },
-  ],
-
+  authors: [{ name: "طلوع زندگی" }],
   creator: "طلوع زندگی",
-
   publisher: "طلوع زندگی",
 
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -59,13 +50,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fa_IR",
     siteName: "طلوع زندگی",
-
     title: "طلوع زندگی | مرکز درمان و بازتوانی",
-
     description: "آشنایی با خدمات، امکانات و مسیر درمان و بازتوانی طلوع زندگی.",
-
-    url: "https://toloozendegi.com",
-
+    url: "https://toloozendegi.ir",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -78,27 +65,87 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: "طلوع زندگی | مرکز درمان و بازتوانی",
-
     description: "مرکز درمان و بازتوانی طلوع زندگی.",
-
     images: ["/images/og-image.jpg"],
   },
 };
 
-// =====================================================
-// ROOT LAYOUT
-// =====================================================
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://toloozendegi.ir/#organization",
+
+  name: "طلوع زندگی",
+  url: "https://toloozendegi.ir/",
+
+  logo: {
+    "@type": "ImageObject",
+    url: "https://toloozendegi.ir/image/logo.webp",
+  },
+
+  description:
+    "طلوع زندگی؛ مرکز درمان و بازتوانی وابستگی به مواد با ارائه خدمات حمایتی، مشاوره‌ای و برنامه‌های بازتوانی.",
+
+  telephone: ["+989122268806", "+989353060799"],
+
+  email: "info@toloozendegi.com",
+
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "تهران",
+    addressLocality: "چهاردانگه",
+    addressCountry: "IR",
+  },
+
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+989122268806",
+      contactType: "customer service",
+      availableLanguage: ["fa"],
+    },
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://toloozendegi.ir/#website",
+
+  url: "https://toloozendegi.ir/",
+  name: "طلوع زندگی",
+
+  description:
+    "وب‌سایت رسمی طلوع زندگی؛ مرکز درمان و بازتوانی وابستگی به مواد.",
+
+  publisher: {
+    "@id": "https://toloozendegi.ir/#organization",
+  },
+
+  inLanguage: "fa-IR",
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fa" className={vazir.variable}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+
         <Header />
 
         {children}

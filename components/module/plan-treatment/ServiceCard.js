@@ -15,7 +15,7 @@ export default function ServiceCard({ service }) {
       <div className={styles.imageWrapper}>
         <Image
           src={service.image}
-          alt={service.title}
+          alt={`${service.title} در کمپ ترک اعتیاد طلوع زندگی`}
           fill
           sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
           className={styles.image}
@@ -38,9 +38,9 @@ export default function ServiceCard({ service }) {
         <Link
           href="/servic"
           className={styles.link}
-          aria-label={`مشاهده خدمات ${service.title}`}
+          aria-label={`مشاهده جزئیات خدمات ${service.title} در طلوع زندگی`}
         >
-          <span>مشاهده خدمات</span>
+          <span>مشاهده جزئیات خدمات</span>
 
           <span aria-hidden="true">←</span>
         </Link>

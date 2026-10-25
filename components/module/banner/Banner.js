@@ -15,28 +15,37 @@ export default function Banner() {
 
       {/* Content */}
       <div className={styles.content}>
-        <p className={styles.eyebrow}>همین امروز قدم اول را بردارید</p>
+        <p className={styles.eyebrow}>شروع مسیر با یک مشاوره</p>
 
         <h2 id="banner-title" className={styles.title}>
-          برای آینده‌ای روشن،
+          برای شروع مسیر درمان،
           <br />
           ما در کنار شما هستیم
         </h2>
 
         <p className={styles.description}>
-          مشاوره اولیه و محرمانه برای آشنایی با روند پذیرش و درمان.
+          برای آشنایی با شرایط پذیرش کمپ ترک اعتیاد، روند درمان و مراحل مربوطه،
+          می‌توانید از مشاوره اولیه و محرمانه استفاده کنید.
         </p>
 
         <div className={styles.actions}>
-          <Link href="/contact-us" className={styles.primaryButton}>
-            <span>تماس با ما</span>
+          <Link
+            href="/contact-us"
+            className={styles.primaryButton}
+            aria-label="تماس با طلوع زندگی برای دریافت مشاوره"
+          >
+            <span>مشاوره رایگان</span>
 
             <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.1.4 2.2.6 3.4.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.1 21 3 12.9 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.3.6 3.4.1.4 0 .8-.2 1.1l-2.2 2.3Z" />
             </svg>
           </Link>
 
-          <Link href="/acceptance" className={styles.secondaryButton}>
+          <Link
+            href="/acceptance"
+            className={styles.secondaryButton}
+            aria-label="مشاهده شرایط پذیرش کمپ ترک اعتیاد"
+          >
             <span>درخواست پذیرش</span>
 
             <svg

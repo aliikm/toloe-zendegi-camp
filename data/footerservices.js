@@ -1,45 +1,40 @@
 export const footerServices = [
   {
     id: 1,
-    title: "درمان اقامتی",
-    href: "",
+    title: "خدمات درمانی و بازتوانی",
+    href: "/servic",
   },
   {
     id: 2,
-    title: "درمان سرپایی",
-    href: "",
+    title: "برنامه‌های درمانی",
+    href: "/servic",
   },
   {
     id: 3,
-    title: "مشاوره خانواده",
-    href: "",
-  },
-  {
-    id: 4,
-    title: "بازتوانی و بهبودی",
-    href: "",
+    title: "شرایط پذیرش",
+    href: "/acceptance",
   },
 ];
 
 export const footerLinks = [
   {
     id: 1,
-    title: "درباره ما",
-    href: "",
+    title: "صفحه اصلی",
+    href: "/",
   },
   {
     id: 2,
-    title: "برنامه‌های درمانی",
-    href: "",
+    title: "درباره ما",
+    href: "/aboutus",
   },
   {
     id: 3,
-    title: "پزشکان",
-    href: "",
+    title: "پذیرش",
+    href: "/acceptance",
   },
   {
     id: 4,
     title: "تماس با ما",
-    href: "",
+    href: "/contact-us",
   },
 ];

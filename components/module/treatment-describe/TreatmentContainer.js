@@ -2,42 +2,43 @@ import styles from "@/app/styles/treatment.module.css";
 import { LuShieldCheck, LuStethoscope, LuHeartHandshake } from "react-icons/lu";
 import { PiPlantLight, PiGenderIntersexLight } from "react-icons/pi";
 import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
+
 const highlights = [
   {
     icon: LuShieldCheck,
     title: "محیط امن و آرام",
     description:
-      "محیطی آرام و منظم برای کمک به تمرکز بیشتر بر مسیر درمان و بازتوانی.",
+      "محیطی آرام و منظم برای کمک به تمرکز بیشتر بر مسیر درمان اعتیاد و بازتوانی.",
   },
   {
     icon: PiGenderIntersexLight,
     title: "پذیرش بانوان و آقایان",
     description:
-      "ارائه خدمات متناسب با شرایط بانوان و آقایان در چارچوب شرایط پذیرش مرکز.",
+      "پذیرش بانوان و آقایان بر اساس شرایط پذیرش و بررسی وضعیت هر مراجعه‌کننده.",
   },
   {
     icon: LuStethoscope,
-    title: "تیم درمانی متخصص",
+    title: "همراهی تیم درمانی",
     description:
-      "همراهی تیم تخصصی و مشاوران برای بررسی شرایط و طراحی مسیر مناسب درمان.",
+      "همراهی تیم درمانی و مشاوران برای بررسی شرایط فرد و انتخاب مسیر مناسب درمان.",
   },
   {
     icon: HiOutlineClipboardDocumentCheck,
     title: "برنامه درمانی متناسب با فرد",
     description:
-      "مسیر درمان و حمایت بر اساس شرایط، نیازها و وضعیت هر فرد مورد بررسی قرار می‌گیرد.",
+      "روند درمان و حمایت با توجه به شرایط، نیازها و وضعیت هر فرد مورد بررسی قرار می‌گیرد.",
   },
   {
     icon: LuHeartHandshake,
     title: "همراهی خانواده",
     description:
-      "ارائه راهنمایی و حمایت برای خانواده در مراحل مختلف مسیر درمان و بازتوانی.",
+      "ارائه راهنمایی و حمایت از خانواده در مراحل مختلف درمان و بازتوانی.",
   },
   {
     icon: PiPlantLight,
     title: "پیگیری پس از درمان",
     description:
-      "ادامه همراهی و توجه به مسیر بازتوانی پس از پایان دوره اقامت و درمان.",
+      "توجه به ادامه مسیر بازتوانی و همراهی پس از پایان دوره اقامت و درمان.",
   },
 ];
 
@@ -51,11 +52,14 @@ export default function TreatmentContainer() {
         <div className={styles.heading}>
           <span className={styles.eyebrow}>همراهی در مسیر بهبودی</span>
 
-          <h2 id="treatment-highlights-title">شرایطی برای یک مسیر مطمئن‌تر</h2>
+          <h2 id="treatment-highlights-title">
+            درمان و بازتوانی؛ متناسب با شرایط هر فرد
+          </h2>
 
           <p>
-            در طلوع زندگی تلاش می‌کنیم در کنار خدمات درمانی، محیط و حمایت لازم
-            برای ادامه مسیر درمان و بازتوانی را فراهم کنیم.
+            در طلوع زندگی تلاش می‌کنیم در کنار خدمات درمانی، محیطی آرام و
+            حمایتگر برای ادامه مسیر درمان اعتیاد، بازتوانی و بازگشت به زندگی
+            سالم فراهم کنیم.
           </p>
         </div>
 

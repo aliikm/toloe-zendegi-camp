@@ -10,11 +10,150 @@ import {
 
 import styles from "../styles/servic.module.css";
 
+// =====================================================
+// SEO METADATA
+// =====================================================
+
 export const metadata = {
-  title: "خدمات و امکانات | کمپ ترک اعتیاد طلوع زندگی",
+  title: "خدمات کمپ ترک اعتیاد | درمان و بازتوانی | طلوع زندگی",
+
   description:
-    "آشنایی با خدمات درمانی، بازتوانی، امکانات رفاهی و شرایط همراهی کمپ طلوع زندگی برای درمان وابستگی به انواع مواد.",
+    "آشنایی با خدمات درمان اعتیاد، مشاوره، بازتوانی، امکانات اقامتی و حوزه‌های درمان وابستگی به انواع مواد در کمپ ترک اعتیاد طلوع زندگی در استان تهران.",
+
+  keywords: [
+    "خدمات کمپ ترک اعتیاد",
+    "خدمات کمپ ترک اعتیاد تهران",
+    "خدمات مرکز ترک اعتیاد",
+    "درمان اعتیاد",
+    "خدمات درمان اعتیاد",
+    "بازتوانی اعتیاد",
+    "مشاوره ترک اعتیاد",
+    "امکانات کمپ ترک اعتیاد",
+    "کمپ ترک اعتیاد تهران",
+    "کمپ ترک اعتیاد استان تهران",
+    "کمپ ترک اعتیاد چهاردانگه",
+    "طلوع زندگی",
+  ],
+
+  alternates: {
+    canonical: "/servic",
+  },
+
+  openGraph: {
+    title: "خدمات کمپ ترک اعتیاد | طلوع زندگی",
+
+    description:
+      "خدمات درمانی، مشاوره، بازتوانی و امکانات کمپ ترک اعتیاد طلوع زندگی در استان تهران.",
+
+    url: "https://toloozendegi.ir/servic",
+
+    siteName: "طلوع زندگی",
+
+    locale: "fa_IR",
+
+    type: "website",
+
+    images: [
+      {
+        url: "/image/banner1.webp",
+        width: 1200,
+        height: 630,
+        alt: "خدمات و امکانات کمپ ترک اعتیاد طلوع زندگی",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "خدمات کمپ ترک اعتیاد | طلوع زندگی",
+
+    description:
+      "آشنایی با خدمات درمان، بازتوانی و امکانات کمپ ترک اعتیاد طلوع زندگی.",
+
+    images: ["/image/banner1.webp"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
+// =====================================================
+// WEBPAGE SCHEMA
+// =====================================================
+
+const structuredData = {
+  "@context": "https://schema.org",
+
+  "@type": "WebPage",
+
+  "@id": "https://toloozendegi.ir/servic/#webpage",
+
+  url: "https://toloozendegi.ir/servic",
+
+  name: "خدمات کمپ ترک اعتیاد | درمان و بازتوانی | طلوع زندگی",
+
+  description:
+    "آشنایی با خدمات درمان اعتیاد، مشاوره، بازتوانی، امکانات اقامتی و حوزه‌های درمان وابستگی به انواع مواد در کمپ ترک اعتیاد طلوع زندگی در استان تهران.",
+
+  isPartOf: {
+    "@type": "WebSite",
+
+    "@id": "https://toloozendegi.ir/#website",
+
+    url: "https://toloozendegi.ir/",
+
+    name: "طلوع زندگی",
+  },
+
+  about: {
+    "@type": "Organization",
+
+    "@id": "https://toloozendegi.ir/#organization",
+  },
+
+  inLanguage: "fa-IR",
+};
+
+// =====================================================
+// BREADCRUMB SCHEMA
+// =====================================================
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+
+  "@type": "BreadcrumbList",
+
+  "@id": "https://toloozendegi.ir/servic/#breadcrumb",
+
+  itemListElement: [
+    {
+      "@type": "ListItem",
+
+      position: 1,
+
+      name: "خانه",
+
+      item: "https://toloozendegi.ir/",
+    },
+
+    {
+      "@type": "ListItem",
+
+      position: 2,
+
+      name: "خدمات",
+
+      item: "https://toloozendegi.ir/servic",
+    },
+  ],
+};
+
+// =====================================================
+// PAGE
+// =====================================================
 
 export default function ServicesPage() {
   const traditionalSubstances = substanceServices.filter(
@@ -28,6 +167,28 @@ export default function ServicesPage() {
 
   return (
     <main className={styles.page}>
+      {/* =====================================================
+          STRUCTURED DATA
+      ====================================================== */}
+
+      {/* WebPage Schema */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
       {/* =====================================================
           HERO
       ====================================================== */}

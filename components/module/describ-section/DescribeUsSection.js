@@ -20,7 +20,7 @@ export default function DescribeUsSection() {
           <div className={styles.imageWrapper}>
             <Image
               src="/image/usdescribe.webp"
-              alt="محیط آرام و طبیعی مرکز طلوع زندگی"
+              alt="محیط آرام کمپ ترک اعتیاد طلوع زندگی در استان تهران"
               width={900}
               height={650}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -33,20 +33,22 @@ export default function DescribeUsSection() {
           ========================== */}
 
           <div className={styles.textContent}>
-            <span className={styles.eyebrow}>درباره طلوع زندگی</span>
+            <span className={styles.eyebrow}>
+              درباره کمپ ترک اعتیاد طلوع زندگی
+            </span>
 
             <h2 id="about-toloo-zendegi-title" className={styles.title}>
-              همراه شما برای
+              همراه شما در مسیر
               <br />
-              شروع یک زندگی جدید
+              درمان و بازتوانی
             </h2>
 
             <p className={styles.description}>
-              طلوع زندگی با تمرکز بر درمان و بازتوانی وابستگی به مواد، تلاش
-              می‌کند محیطی آرام و منظم برای آغاز مسیر بهبودی فراهم کند. در این
-              مسیر، شرایط هر فرد به‌صورت جداگانه مورد بررسی قرار می‌گیرد و
-              خانواده نیز می‌تواند در مراحل مختلف مسیر از راهنمایی و حمایت لازم
-              برخوردار شود.
+              طلوع زندگی، مرکز درمان و بازتوانی در استان تهران، با فراهم کردن
+              محیطی آرام و منظم تلاش می‌کند شرایط مناسبی برای آغاز و ادامه مسیر
+              بهبودی فراهم کند. در این مسیر، شرایط هر فرد به‌صورت جداگانه بررسی
+              می‌شود و خانواده نیز می‌تواند در مراحل مختلف درمان و بازتوانی از
+              راهنمایی و حمایت لازم برخوردار شود.
             </p>
 
             {/* =========================
@@ -55,7 +57,7 @@ export default function DescribeUsSection() {
 
             <ul
               className={styles.features}
-              aria-label="ویژگی‌های مرکز طلوع زندگی"
+              aria-label="ویژگی‌های کمپ ترک اعتیاد طلوع زندگی"
             >
               <li className={styles.feature}>
                 <span className={styles.checkIcon} aria-hidden="true">
@@ -78,7 +80,7 @@ export default function DescribeUsSection() {
                   <LuCheck />
                 </span>
 
-                <span>همراهی و حمایت در مسیر بازتوانی</span>
+                <span>همراهی فرد و خانواده در مسیر بازتوانی</span>
               </li>
             </ul>
 
@@ -89,7 +91,7 @@ export default function DescribeUsSection() {
             <Link
               href="/aboutus"
               className={styles.button}
-              aria-label="مطالعه بیشتر درباره طلوع زندگی"
+              aria-label="مطالعه بیشتر درباره کمپ ترک اعتیاد طلوع زندگی"
             >
               <span>بیشتر درباره ما</span>
 

@@ -16,22 +16,55 @@ const initialStatus = {
   message: "",
 };
 
+const PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
+const ARABIC_DIGITS = "٠١٢٣٤٥٦٧٨٩";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState(initialFormData);
-
   const [status, setStatus] = useState(initialStatus);
-
   const [loading, setLoading] = useState(false);
+
+  // =====================================================
+  // Normalize digits
+  // =====================================================
+
+  function normalizeDigits(value) {
+    return value
+      .replace(/[۰-۹]/g, (digit) => {
+        return String(PERSIAN_DIGITS.indexOf(digit));
+      })
+      .replace(/[٠-٩]/g, (digit) => {
+        return String(ARABIC_DIGITS.indexOf(digit));
+      });
+  }
 
   // =====================================================
   // Normalize phone
   // =====================================================
 
   function normalizePhone(phone) {
-    return phone
+    return normalizeDigits(phone)
       .trim()
-      .replace(/[۰-۹]/g, (digit) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)))
+      .replace(/[\s()-]/g, "")
       .replace(/[^\d+]/g, "");
+  }
+
+  // =====================================================
+  // Normalize Iranian phone
+  // =====================================================
+
+  function normalizeIranianPhone(phone) {
+    let normalized = normalizePhone(phone);
+
+    if (normalized.startsWith("0098")) {
+      normalized = `+98${normalized.slice(4)}`;
+    } else if (normalized.startsWith("98")) {
+      normalized = `+${normalized}`;
+    } else if (normalized.startsWith("0")) {
+      normalized = `+98${normalized.slice(1)}`;
+    }
+
+    return normalized;
   }
 
   // =====================================================
@@ -57,7 +90,6 @@ export default function ContactForm() {
 
   function validateForm() {
     const name = formData.name.trim();
-
     const phone = normalizePhone(formData.phone);
 
     if (!name) {
@@ -72,22 +104,31 @@ export default function ContactForm() {
       return "لطفاً شماره تماس خود را وارد کنید.";
     }
 
-    // شماره ایرانی
-    const iranianMobilePattern = /^(\+98|0098|98|0)?9\d{9}$/;
+    // ===================================================
+    // Iranian mobile
+    // Examples:
+    // 09122268806
+    // +989122268806
+    // 0098912268806
+    // 989122268806
+    // ===================================================
 
-    const normalizedIranianPhone = phone
-      .replace(/^0098/, "+98")
-      .replace(/^98/, "+98");
+    const normalizedIranianPhone = normalizeIranianPhone(phone);
+
+    const iranianMobilePattern = /^\+989\d{9}$/;
 
     const isIranianMobile = iranianMobilePattern.test(normalizedIranianPhone);
 
-    // اگر شماره ایرانی نیست، حداقل اعتبار عمومی را بررسی می‌کنیم
+    // ===================================================
+    // General international phone validation
+    // ===================================================
+
     const digitsOnly = phone.replace(/\D/g, "");
 
-    if (
-      !isIranianMobile &&
-      (digitsOnly.length < 10 || digitsOnly.length > 15)
-    ) {
+    const isGeneralPhoneValid =
+      digitsOnly.length >= 10 && digitsOnly.length <= 15;
+
+    if (!isIranianMobile && !isGeneralPhoneValid) {
       return "لطفاً یک شماره تماس معتبر وارد کنید.";
     }
 
@@ -123,18 +164,13 @@ export default function ContactForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify({
           name: formData.name.trim(),
-
-          phone: formData.phone.trim(),
-
+          phone: normalizePhone(formData.phone),
           subject: formData.subject.trim(),
-
           message: formData.message.trim(),
         }),
       });
@@ -163,7 +199,6 @@ export default function ContactForm() {
 
       setStatus({
         type: "success",
-
         message:
           data?.message ||
           "درخواست شما با موفقیت ارسال شد. به‌زودی با شما تماس می‌گیریم.",
@@ -175,7 +210,6 @@ export default function ContactForm() {
 
       setStatus({
         type: "error",
-
         message:
           error?.message ||
           "در ارسال درخواست مشکلی پیش آمد. لطفاً دوباره تلاش کنید.",
@@ -275,7 +309,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="سوال یا توضیحات خود را بنویسید..."
+          placeholder="سؤال یا توضیحات خود را بنویسید..."
           rows={6}
           maxLength={2000}
           disabled={loading}
@@ -313,7 +347,6 @@ export default function ContactForm() {
         {loading ? (
           <>
             <span aria-hidden="true">⏳</span>
-
             <span>در حال ارسال...</span>
           </>
         ) : (

@@ -16,18 +16,19 @@ export default function ContactPage() {
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>ارتباط با طلوع زندگی</span>
 
-            <h1 id="contact-title">با ما در تماس باشید</h1>
+            <h1 id="contact-title">تماس با کمپ ترک اعتیاد طلوع زندگی</h1>
 
             <p>
-              اگر درباره روند درمان، شرایط پذیرش یا خدمات طلوع زندگی سوالی
-              دارید، کارشناسان ما آماده پاسخگویی و راهنمایی شما هستند.
+              اگر درباره روند درمان اعتیاد، خدمات، شرایط پذیرش یا نحوه شروع مسیر
+              بهبودی سؤال دارید، می‌توانید با کمپ طلوع زندگی در استان تهران تماس
+              بگیرید و اطلاعات لازم را دریافت کنید.
             </p>
 
             <div className={styles.heroActions}>
               <a
                 href="tel:+989122268806"
                 className={styles.primaryButton}
-                aria-label="تماس تلفنی با کمپ طلوع زندگی"
+                aria-label="تماس تلفنی با کمپ ترک اعتیاد طلوع زندگی"
               >
                 تماس برای مشاوره
               </a>
@@ -50,7 +51,7 @@ export default function ContactPage() {
       >
         <div className={styles.container}>
           <h2 id="contact-methods-title" className={styles.srOnly}>
-            راه‌های ارتباطی با کمپ طلوع زندگی
+            راه‌های ارتباطی با کمپ ترک اعتیاد طلوع زندگی
           </h2>
 
           <div className={styles.contactCards}>
@@ -58,11 +59,7 @@ export default function ContactPage() {
                 PHONE
             ================================================== */}
 
-            <a
-              href="tel:+989122268806"
-              className={styles.contactCard}
-              aria-label="تماس تلفنی با طلوع زندگی"
-            >
+            <div className={styles.contactCard}>
               <div className={styles.cardIcon} aria-hidden="true">
                 ☎
               </div>
@@ -70,13 +67,23 @@ export default function ContactPage() {
               <div className={styles.cardContent}>
                 <span>تماس تلفنی</span>
 
-                <strong dir="ltr">0912 226 8806</strong>
+                <a
+                  href="tel:+989122268806"
+                  aria-label="تماس با شماره 0912 226 8806"
+                >
+                  <strong dir="ltr">0912 226 8806</strong>
+                </a>
 
-                <strong dir="ltr">0935 306 0799</strong>
+                <a
+                  href="tel:+989353060799"
+                  aria-label="تماس با شماره 0935 306 0799"
+                >
+                  <strong dir="ltr">0935 306 0799</strong>
+                </a>
 
                 <p>برای دریافت مشاوره و راهنمایی</p>
               </div>
-            </a>
+            </div>
 
             {/* =================================================
                 WHATSAPP
@@ -159,12 +166,13 @@ export default function ContactPage() {
               <span className={styles.sectionEyebrow}>مشاوره و راهنمایی</span>
 
               <h2 id="consultation-title">
-                قبل از شروع مسیر، سوالاتتان را از ما بپرسید
+                قبل از شروع مسیر، سؤال‌هایتان را از ما بپرسید
               </h2>
 
               <p>
-                اگر برای انتخاب مسیر درمان یا شرایط پذیرش نیاز به اطلاعات بیشتری
-                دارید، می‌توانید درخواست مشاوره خود را ارسال کنید.
+                اگر برای انتخاب مسیر درمان اعتیاد، خدمات مجموعه یا شرایط پذیرش
+                نیاز به اطلاعات بیشتری دارید، می‌توانید با ما تماس بگیرید یا
+                درخواست مشاوره خود را ارسال کنید.
               </p>
 
               <div className={styles.infoList}>
@@ -179,7 +187,8 @@ export default function ContactPage() {
                     <strong>مشاوره پیش از پذیرش</strong>
 
                     <p>
-                      قبل از هر تصمیمی می‌توانید اطلاعات لازم را دریافت کنید.
+                      قبل از هر تصمیمی می‌توانید درباره شرایط و مراحل پذیرش
+                      اطلاعات لازم را دریافت کنید.
                     </p>
                   </div>
                 </div>
@@ -195,7 +204,8 @@ export default function ContactPage() {
                     <strong>پذیرش از سراسر کشور</strong>
 
                     <p>
-                      برای هماهنگی پذیرش از شهرهای مختلف کشور با ما تماس بگیرید.
+                      برای هماهنگی پذیرش از شهرها و استان‌های مختلف کشور با ما
+                      در ارتباط باشید.
                     </p>
                   </div>
                 </div>
@@ -211,15 +221,18 @@ export default function ContactPage() {
                     <strong>پذیرش خانم‌ها و آقایان</strong>
 
                     <p>
-                      برای اطلاع از شرایط پذیرش با کارشناسان ما در ارتباط باشید.
+                      برای اطلاع از شرایط و ظرفیت پذیرش بانوان و آقایان با
+                      کارشناسان مجموعه تماس بگیرید.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Acceptance Link */}
-
-              <Link href="/paziresh" className={styles.infoLink}>
+              <Link
+                href="/acceptance"
+                className={styles.infoLink}
+                aria-label="مشاهده شرایط پذیرش کمپ ترک اعتیاد طلوع زندگی"
+              >
                 مشاهده شرایط پذیرش
               </Link>
             </div>
@@ -258,9 +271,15 @@ export default function ContactPage() {
             <div className={styles.locationInfo}>
               <span className={styles.sectionEyebrow}>موقعیت مرکز</span>
 
-              <h2 id="location-title">ما را پیدا کنید</h2>
+              <h2 id="location-title">
+                کمپ ترک اعتیاد طلوع زندگی در استان تهران
+              </h2>
 
-              <p>برای مراجعه حضوری می‌توانید از آدرس زیر استفاده کنید.</p>
+              <p>
+                کمپ طلوع زندگی در استان تهران، محدوده چهاردانگه قرار دارد. برای
+                مراجعه حضوری، پیش از حرکت با مجموعه تماس بگیرید تا اطلاعات دقیق
+                مسیر و هماهنگی لازم را دریافت کنید.
+              </p>
 
               <div className={styles.addressBox}>
                 <strong>آدرس کمپ طلوع زندگی</strong>
@@ -268,12 +287,12 @@ export default function ContactPage() {
                 <p>استان تهران، چهاردانگه</p>
               </div>
 
-              {/*
-                بعداً لینک واقعی Google Maps یا نشان را اینجا قرار می‌دهیم.
-              */}
-
-              <a href="#map" className={styles.mapButton}>
-                مشاهده مسیر روی نقشه
+              <a
+                href="#map"
+                className={styles.mapButton}
+                aria-label="مشاهده موقعیت کمپ طلوع زندگی روی نقشه"
+              >
+                مشاهده موقعیت روی نقشه
               </a>
             </div>
 
@@ -283,8 +302,9 @@ export default function ContactPage() {
               id="map"
               className={styles.mapPlaceholder}
               aria-label="موقعیت کمپ طلوع زندگی روی نقشه"
+              role="img"
             >
-              <span>نقشه مرکز</span>
+              <span>موقعیت کمپ طلوع زندگی</span>
             </div>
           </div>
         </div>
@@ -301,12 +321,15 @@ export default function ContactPage() {
 
             <h2 id="contact-cta-title">برای دریافت مشاوره با ما تماس بگیرید</h2>
 
-            <p>کارشناسان طلوع زندگی آماده پاسخگویی و راهنمایی شما هستند.</p>
+            <p>
+              کارشناسان طلوع زندگی آماده پاسخگویی و راهنمایی شما درباره شرایط
+              درمان و پذیرش هستند.
+            </p>
 
             <a
               href="tel:+989122268806"
               className={styles.ctaButton}
-              aria-label="تماس برای مشاوره با کمپ طلوع زندگی"
+              aria-label="تماس برای مشاوره با کمپ ترک اعتیاد طلوع زندگی"
             >
               تماس برای مشاوره
             </a>

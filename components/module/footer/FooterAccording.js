@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Link from "next/link";
 import { LuChevronDown } from "react-icons/lu";
 
@@ -8,6 +8,7 @@ import styles from "@/app/styles/footer.module.css";
 
 export default function FooterAccordion({ title, items = [] }) {
   const [open, setOpen] = useState(false);
+  const contentId = useId();
 
   const toggleAccordion = () => {
     setOpen((prev) => !prev);
@@ -20,6 +21,7 @@ export default function FooterAccordion({ title, items = [] }) {
         className={styles.accordionButton}
         onClick={toggleAccordion}
         aria-expanded={open}
+        aria-controls={contentId}
       >
         <span>{title}</span>
 
@@ -32,23 +34,23 @@ export default function FooterAccordion({ title, items = [] }) {
       </button>
 
       <div
+        id={contentId}
         className={`${styles.accordionContent} ${
           open ? styles.accordionContentOpen : ""
         }`}
         aria-hidden={!open}
+        inert={!open}
       >
         <ul className={styles.linkList}>
-          {items.map((item) => (
-            <li key={item.id}>
-              <Link
-                href={item.href}
-                tabIndex={open ? 0 : -1}
-                onClick={() => setOpen(false)}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
+          {items
+            .filter((item) => item.href?.trim())
+            .map((item) => (
+              <li key={item.id}>
+                <Link href={item.href} onClick={() => setOpen(false)}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

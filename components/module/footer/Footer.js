@@ -154,18 +154,19 @@ export default function Footer() {
         {/* ========================================
             FOOTER BOTTOM
         ======================================== */}
+        {/* ========================================
+    FOOTER BOTTOM
+======================================== */}
 
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
             © ۱۴۰۵ طلوع زندگی. تمامی حقوق محفوظ است.
           </p>
 
-          <div className={styles.bottomLinks}>
-            <Link href="/privacy">حریم خصوصی</Link>
-
-            <span aria-hidden="true">|</span>
-
-            <Link href="/terms">شرایط استفاده</Link>
+          <div className={styles.designerCredit}>
+            طراحی سایت: <strong>Ali-Km </strong>
+            <span>|</span>
+            <a href="tel:+9809127757164">تماس</a>
           </div>
         </div>
 

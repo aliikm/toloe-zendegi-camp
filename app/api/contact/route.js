@@ -11,6 +11,23 @@ const RATE_LIMIT = 3;
 const RATE_LIMIT_WINDOW = 10 * 60 * 1000; // 10 minutes
 
 // =====================================================
+// DIGIT NORMALIZATION
+// =====================================================
+
+const PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
+const ARABIC_DIGITS = "٠١٢٣٤٥٦٧٨٩";
+
+function normalizeDigits(value) {
+  return String(value)
+    .replace(/[۰-۹]/g, (digit) => {
+      return String(PERSIAN_DIGITS.indexOf(digit));
+    })
+    .replace(/[٠-٩]/g, (digit) => {
+      return String(ARABIC_DIGITS.indexOf(digit));
+    });
+}
+
+// =====================================================
 // GET CLIENT IP
 // =====================================================
 
@@ -24,7 +41,7 @@ function getClientIp(request) {
   const realIp = request.headers.get("x-real-ip");
 
   if (realIp) {
-    return realIp;
+    return realIp.trim();
   }
 
   return "unknown";
@@ -36,7 +53,6 @@ function getClientIp(request) {
 
 function checkRateLimit(ip) {
   const now = Date.now();
-
   const record = rateLimitStore.get(ip);
 
   // First request
@@ -53,7 +69,7 @@ function checkRateLimit(ip) {
 
   const elapsed = now - record.firstRequest;
 
-  // 10 minutes passed
+  // Window expired
   if (elapsed >= RATE_LIMIT_WINDOW) {
     rateLimitStore.set(ip, {
       count: 1,
@@ -67,11 +83,9 @@ function checkRateLimit(ip) {
 
   // Limit reached
   if (record.count >= RATE_LIMIT) {
-    const remainingTime = RATE_LIMIT_WINDOW - elapsed;
-
     return {
       allowed: false,
-      remainingTime,
+      remainingTime: RATE_LIMIT_WINDOW - elapsed,
     };
   }
 
@@ -97,6 +111,48 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
+// =====================================================
+// NORMALIZE PHONE
+// =====================================================
+
+function normalizePhone(phone) {
+  return normalizeDigits(phone)
+    .trim()
+    .replace(/[\s()-]/g, "")
+    .replace(/[^\d+]/g, "");
+}
+
+// =====================================================
+// NORMALIZE IRANIAN PHONE
+// =====================================================
+
+function normalizeIranianPhone(phone) {
+  let normalized = normalizePhone(phone);
+
+  if (normalized.startsWith("0098")) {
+    normalized = `+98${normalized.slice(4)}`;
+  } else if (normalized.startsWith("98")) {
+    normalized = `+${normalized}`;
+  } else if (normalized.startsWith("0")) {
+    normalized = `+98${normalized.slice(1)}`;
+  }
+
+  return normalized;
+}
+
+// =====================================================
+// ALLOWED SUBJECTS
+// =====================================================
+
+const allowedSubjects = new Set([
+  "مشاوره",
+  "شرایط پذیرش",
+  "پذیرش بانوان",
+  "پذیرش آقایان",
+  "پذیرش از سراسر کشور",
+  "سایر موارد",
+]);
 
 // =====================================================
 // POST /api/contact
@@ -146,17 +202,29 @@ export async function POST(request) {
       );
     }
 
-    const { name, phone, subject, message } = body;
+    // =================================================
+    // 3. BASIC BODY VALIDATION
+    // =================================================
 
-    // =================================================
-    // 3. TYPE VALIDATION
-    // =================================================
+    if (!body || typeof body !== "object") {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "اطلاعات ارسال‌شده معتبر نیست.",
+        },
+        {
+          status: 400,
+        },
+      );
+    }
+
+    const { name, phone, subject, message } = body;
 
     if (typeof name !== "string" || typeof phone !== "string") {
       return NextResponse.json(
         {
           success: false,
-          message: "اطلاعات ارسال‌شده معتبر نیست.",
+          message: "نام و شماره تماس الزامی است.",
         },
         {
           status: 400,
@@ -170,7 +238,7 @@ export async function POST(request) {
 
     const cleanName = name.trim();
 
-    const cleanPhone = phone.trim();
+    const cleanPhone = normalizePhone(phone);
 
     const cleanSubject = typeof subject === "string" ? subject.trim() : "";
 
@@ -232,23 +300,18 @@ export async function POST(request) {
       );
     }
 
-    const phonePattern = /^[0-9+\-\s()]+$/;
+    const normalizedIranianPhone = normalizeIranianPhone(cleanPhone);
 
-    if (!phonePattern.test(cleanPhone)) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "شماره تماس معتبر نیست.",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    const iranianMobilePattern = /^\+989\d{9}$/;
 
-    const normalizedPhone = cleanPhone.replace(/\D/g, "");
+    const isIranianMobile = iranianMobilePattern.test(normalizedIranianPhone);
 
-    if (normalizedPhone.length < 10 || normalizedPhone.length > 15) {
+    const digitsOnly = cleanPhone.replace(/\D/g, "");
+
+    const isGeneralPhoneValid =
+      digitsOnly.length >= 10 && digitsOnly.length <= 15;
+
+    if (!isIranianMobile && !isGeneralPhoneValid) {
       return NextResponse.json(
         {
           success: false,
@@ -264,11 +327,11 @@ export async function POST(request) {
     // 7. SUBJECT VALIDATION
     // =================================================
 
-    if (cleanSubject.length > 200) {
+    if (cleanSubject && !allowedSubjects.has(cleanSubject)) {
       return NextResponse.json(
         {
           success: false,
-          message: "موضوع بیش از حد طولانی است.",
+          message: "موضوع درخواست معتبر نیست.",
         },
         {
           status: 400,
@@ -329,19 +392,20 @@ export async function POST(request) {
     }
 
     // =================================================
-    // 11. SMTP TRANSPORTER
+    // 11. SMTP CONFIGURATION
     // =================================================
+
+    const smtpPort = Number(process.env.SMTP_PORT);
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
 
-      port: Number(process.env.SMTP_PORT),
+      port: smtpPort,
 
-      secure: true,
+      secure: smtpPort === 465,
 
       auth: {
         user: process.env.SMTP_USER,
-
         pass: process.env.SMTP_PASSWORD,
       },
     });
@@ -360,7 +424,7 @@ export async function POST(request) {
       subject: cleanSubject || "درخواست جدید از سایت طلوع زندگی",
 
       // =================================================
-      // PLAIN TEXT EMAIL
+      // PLAIN TEXT
       // =================================================
 
       text: `
@@ -394,18 +458,9 @@ ${new Date().toLocaleString("fa-IR")}
 
       html: `
 <!DOCTYPE html>
-
-<html
-  lang="fa"
-  dir="rtl"
->
-
+<html lang="fa" dir="rtl">
 <head>
-
-  <meta
-    charset="UTF-8"
-  />
-
+  <meta charset="UTF-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -414,23 +469,17 @@ ${new Date().toLocaleString("fa-IR")}
   <title>
     درخواست جدید - طلوع زندگی
   </title>
-
 </head>
-
 
 <body
   style="
     margin: 0;
     padding: 0;
     background: #f4f6f2;
-    font-family:
-      Tahoma,
-      Arial,
-      sans-serif;
+    font-family: Tahoma, Arial, sans-serif;
     color: #294430;
   "
 >
-
   <div
     style="
       width: 100%;
@@ -438,7 +487,6 @@ ${new Date().toLocaleString("fa-IR")}
       box-sizing: border-box;
     "
   >
-
     <div
       style="
         max-width: 650px;
@@ -447,8 +495,7 @@ ${new Date().toLocaleString("fa-IR")}
         border-radius: 16px;
         overflow: hidden;
         box-shadow:
-          0 8px 30px
-          rgba(0, 0, 0, 0.06);
+          0 8px 30px rgba(0, 0, 0, 0.06);
       "
     >
 
@@ -461,7 +508,6 @@ ${new Date().toLocaleString("fa-IR")}
           color: #ffffff;
         "
       >
-
         <h1
           style="
             margin: 0;
@@ -481,9 +527,7 @@ ${new Date().toLocaleString("fa-IR")}
         >
           درخواست جدید از سایت
         </p>
-
       </div>
-
 
       <!-- CONTENT -->
 
@@ -499,11 +543,9 @@ ${new Date().toLocaleString("fa-IR")}
           style="
             margin-bottom: 22px;
             padding-bottom: 18px;
-            border-bottom:
-              1px solid #e7ebe5;
+            border-bottom: 1px solid #e7ebe5;
           "
         >
-
           <div
             style="
               margin-bottom: 5px;
@@ -523,9 +565,7 @@ ${new Date().toLocaleString("fa-IR")}
           >
             ${safeName}
           </div>
-
         </div>
-
 
         <!-- PHONE -->
 
@@ -533,11 +573,9 @@ ${new Date().toLocaleString("fa-IR")}
           style="
             margin-bottom: 22px;
             padding-bottom: 18px;
-            border-bottom:
-              1px solid #e7ebe5;
+            border-bottom: 1px solid #e7ebe5;
           "
         >
-
           <div
             style="
               margin-bottom: 5px;
@@ -559,9 +597,7 @@ ${new Date().toLocaleString("fa-IR")}
           >
             ${safePhone}
           </div>
-
         </div>
-
 
         <!-- SUBJECT -->
 
@@ -569,11 +605,9 @@ ${new Date().toLocaleString("fa-IR")}
           style="
             margin-bottom: 22px;
             padding-bottom: 18px;
-            border-bottom:
-              1px solid #e7ebe5;
+            border-bottom: 1px solid #e7ebe5;
           "
         >
-
           <div
             style="
               margin-bottom: 5px;
@@ -593,9 +627,7 @@ ${new Date().toLocaleString("fa-IR")}
           >
             ${safeSubject || "تعیین نشده"}
           </div>
-
         </div>
-
 
         <!-- MESSAGE -->
 
@@ -607,7 +639,6 @@ ${new Date().toLocaleString("fa-IR")}
             border-radius: 12px;
           "
         >
-
           <div
             style="
               margin-bottom: 10px;
@@ -629,9 +660,7 @@ ${new Date().toLocaleString("fa-IR")}
           >
             ${safeMessage || "پیامی وارد نشده است"}
           </div>
-
         </div>
-
 
         <!-- DATE -->
 
@@ -639,21 +668,15 @@ ${new Date().toLocaleString("fa-IR")}
           style="
             margin-top: 25px;
             padding-top: 18px;
-            border-top:
-              1px solid #e7ebe5;
+            border-top: 1px solid #e7ebe5;
             font-size: 12px;
             color: #8a928c;
           "
         >
-
           زمان ارسال:
-
           ${new Date().toLocaleString("fa-IR")}
-
         </div>
-
       </div>
-
 
       <!-- FOOTER -->
 
@@ -666,18 +689,13 @@ ${new Date().toLocaleString("fa-IR")}
           color: #7b857d;
         "
       >
-
         این پیام از طریق فرم تماس
         سایت طلوع زندگی ارسال شده است.
-
       </div>
 
     </div>
-
   </div>
-
 </body>
-
 </html>
       `,
     });
@@ -689,7 +707,6 @@ ${new Date().toLocaleString("fa-IR")}
     return NextResponse.json(
       {
         success: true,
-
         message: "درخواست شما با موفقیت ارسال شد.",
       },
       {
@@ -710,7 +727,6 @@ ${new Date().toLocaleString("fa-IR")}
     return NextResponse.json(
       {
         success: false,
-
         message: "ارسال درخواست با خطا مواجه شد. لطفاً دوباره تلاش کنید.",
       },
       {

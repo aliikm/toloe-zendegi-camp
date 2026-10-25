@@ -81,6 +81,7 @@ export default function MobileMenu() {
         id="mobile-navigation"
         className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
         aria-hidden={!open}
+        inert={!open ? true : undefined}
       >
         {/* =================================================
             MENU HEADER

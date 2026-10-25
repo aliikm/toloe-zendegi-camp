@@ -18,16 +18,16 @@ export default function AcceptanceSection() {
             <span className={styles.eyebrow}>شرایط پذیرش</span>
 
             <h2 id="acceptance-title" className={styles.title}>
-              پذیرش بانوان و آقایان
+              پذیرش کمپ ترک اعتیاد
               <br />
-              از سراسر کشور
+              برای بانوان و آقایان
             </h2>
 
             <p className={styles.description}>
               طلوع زندگی امکان بررسی شرایط پذیرش مراجعان از شهرهای مختلف کشور را
-              فراهم کرده است. پیش از پذیرش، شرایط هر فرد توسط تیم مربوطه بررسی
-              می‌شود تا اطلاعات لازم درباره روند درمان، اقامت و مراحل پذیرش در
-              اختیار فرد و خانواده قرار گیرد.
+              فراهم کرده است. پیش از پذیرش، شرایط هر فرد بررسی می‌شود تا اطلاعات
+              لازم درباره روند درمان، اقامت و مراحل پذیرش در اختیار فرد و
+              خانواده قرار گیرد.
             </p>
 
             {/* =========================
@@ -50,7 +50,7 @@ export default function AcceptanceSection() {
                 CTA
             ========================== */}
 
-            <Link href="/paziresh" className={styles.button}>
+            <Link href="/acceptance" className={styles.button}>
               <span>مشاهده شرایط پذیرش</span>
 
               <LuArrowLeft aria-hidden="true" />

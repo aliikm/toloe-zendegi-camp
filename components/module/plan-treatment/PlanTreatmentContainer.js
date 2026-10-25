@@ -21,7 +21,9 @@ export default function PlanTreatmentContainer() {
 
         <p className={styles.description}>
           برنامه‌های درمانی و حمایتی طلوع زندگی با توجه به شرایط هر فرد، با
-          تمرکز بر درمان، بازتوانی و ادامه مسیر بهبودی ارائه می‌شوند.
+          تمرکز بر درمان، بازتوانی و تقویت مسیر بهبودی ارائه می‌شوند. برای
+          آشنایی بیشتر با خدمات و امکانات مجموعه می‌توانید جزئیات هر برنامه را
+          بررسی کنید.
         </p>
       </header>
 
@@ -29,7 +31,10 @@ export default function PlanTreatmentContainer() {
           Services
       ========================== */}
 
-      <div className={styles.servicesGrid}>
+      <div
+        className={styles.servicesGrid}
+        aria-label="برنامه‌های درمان و بازتوانی"
+      >
         {services.map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}

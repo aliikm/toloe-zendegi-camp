@@ -9,14 +9,14 @@ export const stats = [
   {
     id: 1,
     number: "10+",
-    title: "سال تجربه در مسیر درمان",
+    title: "سال تجربه در مسیر درمان و بازتوانی",
     icon: LuCalendarDays,
   },
 
   {
     id: 2,
     number: "24/7",
-    title: "همراهی و پاسخگویی",
+    title: "پاسخگویی و همراهی",
     icon: LuHeartHandshake,
   },
 
@@ -30,7 +30,7 @@ export const stats = [
   {
     id: 4,
     number: "سراسری",
-    title: "پذیرش از شهرهای مختلف کشور",
+    title: "پذیرش از شهرها و استان‌های مختلف",
     icon: LuMapPin,
   },
 ];

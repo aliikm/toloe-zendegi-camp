@@ -10,9 +10,9 @@ export default function Hero() {
         src="/image/hero-img.webp"
         fill
         priority
-        quality={80}
+        quality={75}
         sizes="100vw"
-        alt="محیط آرام مرکز طلوع زندگی برای درمان و بازتوانی"
+        alt="محیط آرام کمپ ترک اعتیاد طلوع زندگی در استان تهران"
         className={styles.image}
       />
 
@@ -20,18 +20,18 @@ export default function Hero() {
 
       <div className={styles.paragraphcontainer}>
         <div className={styles.content}>
-          <span className={styles.badge}>مرکز تخصصی درمان وترک اعتیاد</span>
+          <span className={styles.badge}>مرکز درمان و بازتوانی اعتیاد</span>
 
           <h1>
-            به شروعی دوباره
+            کمپ ترک اعتیاد طلوع زندگی
             <br />
-            باور داریم
+            باور به شروعی دوباره
           </h1>
 
           <p>
-            ما در کنار شما هستیم تا با رویکردی علمی، انسانی و حرفه‌ای، مسیر
-            درمان و بازتوانی را برای شما هموارتر کنیم و گامی برای بازگشت به
-            زندگی سالم و آرام برداریم.
+            در طلوع زندگی تلاش می‌کنیم با ایجاد محیطی آرام و حمایتگر، در مسیر
+            درمان، بازتوانی و بازگشت به زندگی سالم همراه شما و خانواده‌تان
+            باشیم.
           </p>
 
           <div className={styles.buttons}>
@@ -40,7 +40,7 @@ export default function Hero() {
             </Link>
 
             <Link href="/contact-us" className={styles.secondary}>
-              دریافت مشاوره
+              مشاوره رایگان
             </Link>
           </div>
         </div>
