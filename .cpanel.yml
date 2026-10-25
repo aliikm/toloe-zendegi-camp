@@ -1,5 +1,4 @@
-
 ---
 deployment:
   tasks:
-    - /bin/bash -lc 'cd /home/perxcxif/repositories/toloe-zendegi-camp && npm ci && npm run build && /bin/cp -a .next/standalone/. /home/perxcxif/toloo-zendegi-app/ && /bin/mkdir -p /home/perxcxif/toloo-zendegi-app/.next/static /home/perxcxif/toloo-zendegi-app/public && /bin/cp -a .next/static/. /home/perxcxif/toloo-zendegi-app/.next/static/ && /bin/cp -a public/. /home/perxcxif/toloo-zendegi-app/public/'
+    - /bin/echo "Deployment configuration loaded"
